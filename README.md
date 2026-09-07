@@ -10,7 +10,8 @@ The core bibliography is restricted to **journal-published articles**. Preprints
 
 - `references.bib` — Zotero/BibTeX-ready curated bibliography.
 - `references.md` — human-readable categorized bibliography.
-- `clinical_impact_perioperative.md` — evidence specifically addressing intraoperative decision-making and potential clinical value.
+- `clinical_impact_perioperative.md` — detailed evidence on intraoperative decision-making, with a dedicated **adult diffuse-glioma / glioblastoma** section.
+- `surgical_impact_references.bib` — focused BibTeX bibliography for perioperative impact, adult glioma surgery and biology-informed extent-of-resection literature.
 - `montpellier_landscape_2026-09-07.md` — CHU Montpellier feasibility context, centered on PMMG.
 - `montpellier_local_references.bib` — CHU-linked long-read references.
 
@@ -21,6 +22,7 @@ The core bibliography is restricted to **journal-published articles**. Preprints
 3. **Multimodal nanopore profiling** — methylation + CNV, with extension to SNV/indel, SV/fusions and MGMT.
 4. **Fresh/frozen and intraoperative feasibility** — Djirackor, Sturgeon, Rapid-CNS2, ROBIN and recent validation studies.
 5. **Clinical decision impact** — whether obtaining tumour identity during surgery can change the balance between extent of resection and neurological risk.
+6. **Adult precision neurosurgery** — whether adult glioma molecular state can inform how aggressively a tumour should be resected and whether rapid molecular data can correct intraoperative diagnostic uncertainty.
 
 ## CHU Montpellier — feasibility context
 
@@ -51,12 +53,26 @@ Public evidence does not show that CHU Montpellier already has a validated local
 
 The strongest rationale is not simply “faster molecular diagnosis”. It is **molecular information delivered while the neurosurgical strategy is still modifiable**.
 
-- **Djirackor et al. 2021**: in 20 intraoperative cases, the molecular result would have supported a change in surgical strategy in **12/20**.
+### Direct nanopore decision-impact evidence
+
+- **Djirackor et al. 2021**: in 20 intraoperative cases, the molecular result would have supported a change in surgical strategy in **12/20**. The full cohort included 55 adults, although the decision-impact subset was not stratified by age.
 - **Sturgeon / Nature 2023**: real-time use in 25 operations with <90 min sample-to-diagnosis, establishing the technical basis for molecular decision support during surgery.
-- **Rapid-CNS2 / Nature Medicine 2025**: 18 real intraoperative cases; methylation + CNV provided clinically relevant additional information in **13/18 (72.2%)**, although results were deliberately not yet used to drive surgery in that validation study.
-- **ROBIN / Neuro-Oncology 2025**: 50 prospective intraoperative cases, <2 h turnaround and 90% concordance with final integrated diagnosis; strong feasibility, but not a patient-outcome trial.
-- **Eelkman Rooda et al. / Child's Nervous System 2026**: recent peer-reviewed review focused specifically on how intraoperative nanopore sequencing can individualize extent-of-resection decisions and on the need to measure neurological morbidity, second-look surgery and patient-reported outcomes prospectively.
+- **Sie et al. / Neuro-Oncology 2026**: 94 consecutive paediatric patients in routine care; Sturgeon actually **changed surgical strategy in 14.3%** of informative cases, toward either more aggressive or more limited resection. This is currently the clearest peer-reviewed demonstration of real-time nanopore decision impact.
 
-The evidence therefore supports a careful formulation: **decision impact is already demonstrated; reduction in neurological morbidity or improved survival remains to be proven prospectively.**
+### Adult diffuse-glioma evidence
 
-See `clinical_impact_perioperative.md` for the detailed evidence hierarchy.
+The adult literature now supplies a complementary chain of evidence:
+
+- **Wu et al., BMC Medicine 2025**: prospective multicentre adult-type diffuse-glioma study showing that ~35-min molecular testing can correct important frozen-section interpretations; 40 lower-grade calls were redirected toward glioblastoma and 20 apparent gliosis cases were molecularly identified as diffuse glioma.
+- **Drexler et al., Neuro-Oncology 2023**: methylation subclasses predicted differential association between extent of resection and survival in IDH-wildtype glioblastoma — benefit for RTK I/II but not demonstrable for MES.
+- **Drexler, Lim & Hervey-Jumper, Neuro-Oncology 2025**: explicit framework for molecularly informed glioblastoma surgery and potential use of intraoperative nanopore methylation data.
+- **iSCORED / Genome Medicine 2025**, **Rapid-CNS2 / Nature Medicine 2025** and **ROBIN / Neuro-Oncology 2025** demonstrate that adult-relevant methylation + genome-wide CNV information can already be generated within the operative window.
+- **PIONEER Consortium / RANO resect, Lancet Oncology 2026** provides the contemporary adult framework for intraoperative decision-making and for measuring neurological, functional and quality-of-life outcomes.
+
+### Current adult evidence gap
+
+There is still no large **adult-only, peer-reviewed nanopore study** showing a clean prospective endpoint such as percentage of operations whose extent of resection was actually changed, reduction in second-look surgery, or reduction in neurological morbidity.
+
+That is a scientifically important distinction: **adult clinical need, biological rationale and technical feasibility are already present; direct adult nanopore clinical-impact evidence remains incomplete.**
+
+See `clinical_impact_perioperative.md` for the detailed evidence hierarchy and `surgical_impact_references.bib` for the focused bibliography.

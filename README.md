@@ -1,99 +1,62 @@
 # Long-read sequencing in CNS tumour diagnostics — literature repository
 
-Curated literature repository for recent (2018–2026) evidence on **long-read / Oxford Nanopore sequencing in brain and CNS tumour diagnostics**, with emphasis on fresh/frozen tissue, methylome classification, genome-wide CNV/SV analysis, targeted SNV detection, and intraoperative/rapid workflows.
+Curated literature repository for recent (2018–2026) evidence on **long-read / Oxford Nanopore sequencing in brain and CNS tumour diagnostics**, with emphasis on fresh/frozen tissue, methylome classification, genome-wide CNV/SV analysis, targeted SNV detection, and rapid/intraoperative workflows.
 
 ## Scope
 
-The bibliography is intentionally restricted to **journal-published articles**. It excludes:
-- medRxiv/bioRxiv preprints when a peer-reviewed journal version exists;
-- conference-only abstracts/supplements;
-- non-journal vendor pages;
-- the landmark 2017 Euskirchen et al. same-day nanopore paper because it falls outside the requested 2018–2026 window.
+The core bibliography is restricted to **journal-published articles**. Preprints and conference-only abstracts are not included as core references when no full peer-reviewed version is available.
 
 ## Files
 
 - `references.bib` — Zotero/BibTeX-ready curated bibliography.
-- `references.md` — human-readable categorized list with DOI and relevance.
-- `montpellier_landscape_2026-09-07.md` — evidence-graded scan focused on **CHU Montpellier** long-read experience, CNS-tumour links, hospital infrastructure and bioinformatics.
-- `montpellier_local_references.bib` — CHU Montpellier long-read references.
-- `.gitignore` — minimal repository hygiene.
+- `references.md` — human-readable categorized bibliography.
+- `clinical_impact_perioperative.md` — evidence specifically addressing intraoperative decision-making and potential clinical value.
+- `montpellier_landscape_2026-09-07.md` — CHU Montpellier feasibility context, centered on PMMG.
+- `montpellier_local_references.bib` — CHU-linked long-read references.
 
-## Core themes represented
+## Core scientific themes
 
-1. **Diagnostic framework and clinical need**
-   - WHO CNS5 integrated diagnosis.
-   - EANO molecular diagnostic guideline.
-   - cIMPACT-NOW update 9 on genome-wide DNA methylation profiling.
-   - Large clinical methylation-classifier utility cohorts.
+1. **Molecular classification as part of modern CNS diagnosis** — WHO CNS5, EANO, cIMPACT-NOW, methylation-classifier clinical utility.
+2. **Rapid methylation classification** — nanoDx, Sturgeon, MethyLYZR, MNP-Flex/crossNN.
+3. **Multimodal nanopore profiling** — methylation + CNV, with extension to SNV/indel, SV/fusions and MGMT.
+4. **Fresh/frozen and intraoperative feasibility** — Djirackor, Sturgeon, Rapid-CNS2, ROBIN and recent validation studies.
+5. **Clinical decision impact** — whether obtaining tumour identity during surgery can change the balance between extent of resection and neurological risk.
 
-2. **Rapid / intraoperative nanopore methylation classification**
-   - Djirackor et al. 2021.
-   - Sturgeon / Vermeulen et al. 2023.
-   - MethyLYZR / Brändl et al. 2025.
-   - ROBIN / Deacon et al. 2025.
+## CHU Montpellier — feasibility context
 
-3. **Multimodal nanopore profiling**
-   - Rapid-CNS2 proof-of-concept (2022) and multicenter validation (2025).
-   - CNV, SNV/indel, MGMT, methylation class and structural alteration assessment.
+The local feasibility argument is deliberately simple and **CHU-centered**.
 
-4. **Genome-wide CNV / low-pass approaches**
-   - iSCORED / Emiliani et al. 2025.
-   - Rapid CNV reconstruction combined with methylation classification.
+### PMMG / R+3
 
-5. **Cross-platform methylation classifiers**
-   - nanoDx.
-   - Sturgeon.
-   - MethyLYZR.
-   - MNP-Flex.
-   - crossNN.
+The project is positioned within the **Plateau de Médecine Moléculaire et de Génomique (PMMG), R+3**, where molecular-genomics expertise and the clinically oriented bioinformatics team are already present.
 
-6. **Fresh / frozen real-world feasibility**
-   - Fresh intraoperative biopsies.
-   - Cryopreserved/fresh-frozen cohorts.
-   - 2026 multi-institutional NOS/NEC validation including frozen tissues.
+### Existing long-read experience
 
-## CHU Montpellier: existing experience and infrastructure
+CHU Montpellier teams already have published long-read experience:
 
-The local section is deliberately restricted to **evidence directly linked to CHU Montpellier**.
+- **Perrin et al., J Mol Diagn 2022** — long-read resolution of variants in repetitive `TTN` domains.
+- **Ban et al., Frontiers in Oncology 2024** — ONT MinION Mk1B + Flongle used to resolve a `PALB2` intragenic duplication in an oncology/genetics setting.
 
-### Direct CHU long-read / oncology experience
+The `PALB2` workflow included ONT sequencing and downstream analysis with **Guppy, Minimap2, IGV, in-house scripts and Sniffles**, with **MOBIDIC / PMMG, CHU Montpellier** explicitly represented among the affiliations. This supports both wet-lab and bioinformatics feasibility without claiming that a complete CNS workflow already exists locally.
 
-- **Perrin et al., Journal of Molecular Diagnostics 2022** — CHU Montpellier molecular genetics teams used a long-read strategy to resolve variants in repetitive `TTN` domains.
-- **Ban et al., Frontiers in Oncology 2024** — CHU Montpellier teams including Biologie des Tumeurs Solides, Medical Genetics, ChromoStem and **MOBIDIC / PMMG** used ONT **MinION Mk1B + Flongle** to resolve an intragenic `PALB2` duplication breakpoint.
-- The reported `PALB2` analysis used **Guppy**, **Minimap2**, **IGV**, **in-house scripts**, **Sniffles**, RepeatMasker and ClustalW. This is direct evidence of existing CHU experience with ONT reads and structural-variant bioinformatics.
+### Direct CNS-tumour experience connected to CHU Montpellier
 
-### Direct CNS-tumour connection
+**Filser et al., Neuro-Oncology 2025 — “Nanopore sequencing as a cutting-edge technology for medulloblastoma classification”** is included in the bibliography. CHU Montpellier co-authors include **Valérie Rigau** and **Gilles Palenzuela**. The study demonstrates high-concordance nanopore methylation/CNV classification on frozen medulloblastomas and provides direct local scientific experience with the approach, while not proving that the sequencing runs themselves were performed at Montpellier.
 
-- **Filser et al., Neuro-Oncology 2025 — “Nanopore sequencing as a cutting-edge technology for medulloblastoma classification”** is included in the main bibliography.
-- Montpellier co-authors include **Valérie Rigau** (Department of Pathology and Onco-biology, Gui de Chauliac University Hospital) and **Gilles Palenzuela** (CHU Montpellier).
-- The study combined **sparse genome-wide methylation + copy-number profiling** on medulloblastomas, with 42/44 (95.5%) correctly subgrouped in the frozen EPIC benchmark cohort, 106/116 (91.4%) in the integrated-diagnosis cohort, 17/18 (94.4%) on Flongle, and 28/30 (93.3%) correctly subtyped.
-- This demonstrates **CHU Montpellier participation in a peer-reviewed nanopore CNS-tumour classification program**, but does **not** prove that the sequencing runs themselves were performed locally.
+### What remains to demonstrate
 
-### Existing hospital infrastructure
+Public evidence does not show that CHU Montpellier already has a validated local workflow for **rapid CNS methylation classification + genome-wide CNV ± SNV/SV** in the intraoperative setting. That gap is the relevant feasibility question.
 
-The **Site Unique de Biologie (SUB) Pr Arlette Serre** centralizes almost all CHU Montpellier laboratory biology. Its current organization includes:
-- **R+2:** pathology / biopathology and cytogenetics;
-- **R+3:** molecular genetics, including the **Plateau de Médecine Moléculaire et de Génomique (PMMG)**;
-- **rez-de-jardin:** Centre de Ressources Biologiques / tissue resources;
-- **R+5:** CRIBS research and innovation space.
+## Perioperative clinical-value angle
 
-This hospital organization brings pathology, molecular genetics/genomics, biological resources and translational research into a single CHU site. Separately, the `PALB2` publication proves actual CHU use of **MinION Mk1B + Flongle**, although public information does not establish whether ONT is currently deployed as a routine platform or the exact instrument inventory available today.
+The strongest rationale is not simply “faster molecular diagnosis”. It is **molecular information delivered while the neurosurgical strategy is still modifiable**.
 
-### Existing CHU bioinformatics experience
+- **Djirackor et al. 2021**: in 20 intraoperative cases, the molecular result would have supported a change in surgical strategy in **12/20**.
+- **Sturgeon / Nature 2023**: real-time use in 25 operations with <90 min sample-to-diagnosis, establishing the technical basis for molecular decision support during surgery.
+- **Rapid-CNS2 / Nature Medicine 2025**: 18 real intraoperative cases; methylation + CNV provided clinically relevant additional information in **13/18 (72.2%)**, although results were deliberately not yet used to drive surgery in that validation study.
+- **ROBIN / Neuro-Oncology 2025**: 50 prospective intraoperative cases, <2 h turnaround and 90% concordance with final integrated diagnosis; strong feasibility, but not a patient-outcome trial.
+- **Eelkman Rooda et al. / Child's Nervous System 2026**: recent peer-reviewed review focused specifically on how intraoperative nanopore sequencing can individualize extent-of-resection decisions and on the need to measure neurological morbidity, second-look surgery and patient-reported outcomes prospectively.
 
-**MOBIDIC / PMMG (CHU Montpellier)** is explicitly represented in the published `PALB2` long-read workflow. The analysis included:
-- ONT basecalling;
-- long-read alignment;
-- structural-variant calling;
-- visual review;
-- custom scripting;
-- breakpoint characterization.
+The evidence therefore supports a careful formulation: **decision impact is already demonstrated; reduction in neurological morbidity or improved survival remains to be proven prospectively.**
 
-This is the most directly relevant published evidence for existing **CHU-based long-read bioinformatics competence**. It should not be overstated as a validated end-to-end CNS pipeline: no public evidence was found for a local clinical workflow integrating rapid CNS methylation classification + CNV + SNV/SV.
-
-See `montpellier_landscape_2026-09-07.md` for the evidence grading and limitations.
-
-## Notes
-
-This is a literature curation repository, not yet a protocol or project proposal.  
-Clinical implementation claims should remain tied to the exact validation setting of each publication.
+See `clinical_impact_perioperative.md` for the detailed evidence hierarchy.

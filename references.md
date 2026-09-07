@@ -55,13 +55,21 @@ All entries below are final journal publications. Preprints and conference-only 
     Integrated real-time methylation classification plus CNV/SNV/SV/fusion/MGMT workflow.
 
 17. **Filser M, et al. (2025).** Nanopore sequencing as a cutting-edge technology for medulloblastoma classification. *Neuro-Oncology* 27:1313–1324. DOI: `10.1093/neuonc/noae279`  
-    **Montpellier-relevant experience:** Valérie Rigau (IGF + Department of Pathology and Onco-biology, Gui de Chauliac University Hospital) and Gilles Palenzuela (CHU Montpellier) are co-authors. On 44 frozen medulloblastomas benchmarked against EPIC arrays, 42/44 (95.5%) were correctly subgrouped; in the 116-case integrated-diagnosis cohort, 106/116 (91.4%) were correctly subgrouped. In a Flongle subset, 17/18 (94.4%) were correctly classified, and 28/30 (93.3%) were correctly subtyped. This is the most direct published link between the Montpellier neuro-oncology/neuropathology ecosystem and nanopore methylation/CNV classification of CNS tumours.
+    **Montpellier-relevant experience:** Valérie Rigau and Gilles Palenzuela (CHU Montpellier) are co-authors. On 44 frozen medulloblastomas benchmarked against EPIC arrays, 42/44 (95.5%) were correctly subgrouped; in the 116-case integrated-diagnosis cohort, 106/116 (91.4%) were correctly subgrouped. In a Flongle subset, 17/18 (94.4%) were correctly classified, and 28/30 (93.3%) were correctly subtyped. This is the most direct published CHU Montpellier link to nanopore methylation/CNV classification of CNS tumours.
 
 18. **Hu W, et al. (2026).** Nanopore-based DNA methylation profiling for rapid molecular classification of NOS/NEC CNS tumors: multi-institutional evaluation using FFPE archives and frozen tissues. *Acta Neuropathologica Communications*. DOI: `10.1186/s40478-026-02359-y`  
     Recent multi-institutional validation including 18 frozen-tissue samples and diagnostically difficult NOS/NEC cases.
+
+19. **Eelkman Rooda OHJ, et al. (2026).** The emerging role of intraoperative nanopore sequencing on the neurosurgical strategy in paediatric embryonal brain tumours. *Child's Nervous System* 42:282. DOI: `10.1007/s00381-026-07377-8`  
+    Peer-reviewed review focused specifically on biology-informed extent-of-resection decisions, neurological morbidity and second-look surgery as future clinical endpoints.
+
+## Supporting perioperative surgical rationale
+
+20. **Thompson EM, et al. (2018).** The clinical importance of medulloblastoma extent of resection: a systematic review. *Journal of Neuro-Oncology* 139:523–539. DOI: `10.1007/s11060-018-2906-5`  
+    Systematic review showing uncertainty around the prognostic value of extent of resection in medulloblastoma and emphasizing the need to interpret surgical radicality in the molecular era.
 
 ## Explicit exclusions
 
 - **Euskirchen et al., Acta Neuropathologica 2017** — landmark same-day genomic/epigenomic nanopore CNS tumour paper, but outside the requested 2018–2026 window.
 - medRxiv versions of Rapid-CNS2 and iSCORED — excluded because peer-reviewed journal versions are available.
-- 2026 conference/supplement abstracts on independent replication — excluded until/full unless represented by a full peer-reviewed article.
+- 2026 conference/supplement abstracts on independent replication — excluded unless represented by a full peer-reviewed article.

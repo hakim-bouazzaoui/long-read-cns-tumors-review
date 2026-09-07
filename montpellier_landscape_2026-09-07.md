@@ -1,34 +1,36 @@
-# Montpellier long-read / Oxford Nanopore landscape
+# CHU Montpellier long-read / Oxford Nanopore landscape
 
 **Date of scan:** 2026-09-07  
-**Scope:** CHU Montpellier and the immediately connected Montpellier academic/clinical ecosystem (Université de Montpellier, IGF/MGX, PMMG/MOBIDIC, IRCM/ICM), with emphasis on oncology, neuropathology/CNS tumours, infrastructure and bioinformatics.
+**Scope:** evidence directly linked to **CHU Montpellier**, with emphasis on oncology, neuropathology/CNS tumours, hospital infrastructure and bioinformatics. Academic-only University/IGF projects are deliberately excluded from this version.
 
 ## Executive conclusion
 
 ### Confirmed by public evidence
 
-1. **Long-read / Oxford Nanopore sequencing has already been used by CHU Montpellier teams.**
-   - TTN repeated-domain variant localisation in *The Journal of Molecular Diagnostics* (2022).
-   - PALB2 intragenic duplication breakpoint characterisation in *Frontiers in Oncology* (2024), with CHU Montpellier Biologie des Tumeurs Solides, Medical Genetics, ChromoStem and **MOBIDIC / PMMG** affiliations.
+1. **Long-read sequencing has already been used by CHU Montpellier teams.**
+   - Perrin et al., *The Journal of Molecular Diagnostics* 2022: long-read resolution of variants in repetitive `TTN` domains.
+   - Ban et al., *Frontiers in Oncology* 2024: ONT long-read characterization of an intragenic `PALB2` duplication, with CHU Montpellier Biologie des Tumeurs Solides, Medical Genetics, ChromoStem and **MOBIDIC / PMMG** affiliations.
 
-2. **There is an established ONT-capable genomics platform in Montpellier.**
-   - Montpellier GenomiX (MGX), at the IGF / Arnaud-de-Villeneuve campus, publicly lists an **Oxford Nanopore MinION**, long-read gDNA library preparation, direct RNA-seq ONT library preparation and bioinformatics/statistical support.
+2. **There is direct published CHU experience with ONT wet-lab and long-read bioinformatics in an oncology/genetics setting.**
+   - The `PALB2` study used **MinION Mk1B + Flongle**, Guppy, Minimap2, IGV, in-house scripts and Sniffles.
 
-3. **CHU Montpellier has participated in a peer-reviewed nanopore CNS-tumour study.**
-   - Filser et al., *Neuro-Oncology* 2025: nanopore methylation + copy-number classification of medulloblastoma.
-   - Montpellier co-authors include **Valérie Rigau** (IGF + Department of Pathology and Onco-biology, Gui de Chauliac University Hospital) and **Gilles Palenzuela** (CHU Montpellier).
+3. **CHU Montpellier has participated in a peer-reviewed nanopore CNS-tumour classification study.**
+   - Filser et al., *Neuro-Oncology* 2025: **“Nanopore sequencing as a cutting-edge technology for medulloblastoma classification.”**
+   - Montpellier co-authors include **Valérie Rigau**, Department of Pathology and Onco-biology, Gui de Chauliac University Hospital, and **Gilles Palenzuela**, CHU Montpellier pediatric hematology-oncology.
 
-4. **There is existing Montpellier bioinformatics experience relevant to a future multimodal nanopore workflow.**
-   - PMMG/MOBIDIC is represented in the PALB2 long-read publication, whose analysis used Guppy, Minimap2, IGV, in-house scripts and Sniffles.
-   - MGX provides NGS bioinformatics support.
-   - The IGF Pannequin/Bassaganyas team is developing computational methods for **multimodal nanopore ctDNA analysis** in colorectal cancer.
-   - A 2025 University of Montpellier MSc Bioinformatics project benchmarked `ichorCNA`, `ACE` and `QDNAseq` for CNA analysis on simulated and real low-pass WGS data in that nanopore/ctDNA context.
+4. **The current CHU biology organization is compatible with translational molecular-genomics development.**
+   - The **Site Unique de Biologie (SUB) Pr Arlette Serre** centralizes almost all CHU laboratory biology.
+   - R+2: pathology / biopathology and cytogenetics.
+   - R+3: molecular genetics, including the **Plateau de Médecine Moléculaire et de Génomique (PMMG)**.
+   - Rez-de-jardin: Centre de Ressources Biologiques / tissue resources.
+   - R+5: CRIBS research and innovation.
 
 ### Not demonstrated by the public evidence found in this scan
 
 - Routine clinical long-read sequencing for solid tumours across the CHU.
 - A validated **intraoperative/rapid nanopore diagnostic pathway for brain tumours at Gui de Chauliac**.
-- Proof that the nanopore sequencing runs in the multicentre medulloblastoma paper were physically performed in Montpellier. The study is centrally led by Institut Curie and uses the Curie-developed NanoCliD pipeline; Montpellier is clearly a participating clinical/pathology centre, but local sequencing execution cannot be inferred from authorship alone.
+- Proof that the nanopore sequencing runs in the multicentre medulloblastoma study were physically performed at CHU Montpellier.
+- A publicly documented current ONT instrument inventory at PMMG or elsewhere in the CHU.
 
 ---
 
@@ -40,7 +42,7 @@
 *The Journal of Molecular Diagnostics* 24(7):719–726.  
 DOI: `10.1016/j.jmoldx.2022.04.006`
 
-CHU Montpellier affiliations include the molecular diagnostic laboratory, medical genetics and ChromoStem. The study implemented a third-generation long-read strategy to localise variants in highly repetitive TTN domains that were difficult to resolve by short reads.
+CHU Montpellier affiliations include the molecular diagnostic laboratory, medical genetics and ChromoStem. The study implemented a third-generation long-read strategy to localise variants in highly repetitive `TTN` domains that were difficult to resolve by short reads.
 
 **Interpretation:** operational long-read expertise was already present in the CHU molecular-genetics environment by 2022.
 
@@ -54,13 +56,12 @@ CHU Montpellier affiliations include the molecular diagnostic laboratory, medica
 *Frontiers in Oncology* 14:1355715.  
 DOI: `10.3389/fonc.2024.1355715`
 
-### Montpellier affiliations
+### CHU Montpellier affiliations relevant to the workflow
 
 - Laboratoire de Biologie des Tumeurs Solides, CHU Montpellier
 - Medical Genetics, Arnaud-de-Villeneuve Hospital
 - ChromoStem, CHU Montpellier
 - **Montpellier BioInformatics for Clinical Diagnosis (MOBIDIC), Molecular Medicine and Genomics Platform (PMMG), CHU Montpellier**
-- IRCM / ICM
 
 ### Reported ONT workflow
 
@@ -77,15 +78,17 @@ DOI: `10.3389/fonc.2024.1355715`
 - Sniffles structural-variant calling;
 - RepeatMasker / ClustalW for breakpoint context.
 
-The workflow resolved the exact PALB2 tandem-duplication breakpoint and contributed to pathogenic interpretation.
+The workflow resolved the exact `PALB2` tandem-duplication breakpoint and contributed to pathogenic interpretation.
 
-**Important limitation:** this was hereditary-cancer / germline DNA work with targeted amplification rather than native whole-genome sequencing of a fresh solid-tumour biopsy. It nevertheless proves concrete ONT wet-lab and computational experience within the CHU oncology/genetics ecosystem.
+**Interpretation:** this is direct evidence that CHU teams have already handled both the wet-lab and computational components of ONT long-read analysis in an oncology-related setting.
+
+**Important limitation:** this was hereditary-cancer / germline DNA work with targeted amplification rather than native whole-genome sequencing of a fresh solid-tumour biopsy.
 
 **Primary source:** https://pmc.ncbi.nlm.nih.gov/articles/PMC10938850/
 
 ---
 
-## 3. CNS tumours — direct Montpellier scientific connection
+## 3. CNS tumours — direct CHU Montpellier scientific connection
 
 ### Filser et al., 2025 — medulloblastoma
 
@@ -93,9 +96,9 @@ The workflow resolved the exact PALB2 tandem-duplication breakpoint and contribu
 *Neuro-Oncology* 27(5):1313–1324.  
 DOI: `10.1093/neuonc/noae279`
 
-### Montpellier co-authors
+### CHU Montpellier co-authors
 
-- **Valérie Rigau** — Institute of Functional Genomics, Montpellier; Department of Pathology and Onco-biology, Gui de Chauliac University Hospital, Montpellier.
+- **Valérie Rigau** — Department of Pathology and Onco-biology, Gui de Chauliac University Hospital, Montpellier.
 - **Gilles Palenzuela** — CHU Montpellier pediatric hematology-oncology.
 
 ### Study performance
@@ -108,9 +111,9 @@ DOI: `10.1093/neuonc/noae279`
 - Flongle subset: **17/18 (94.4%)** correctly classified;
 - subtype classification: **28/30 (93.3%)**.
 
-The study evaluated clinically relevant methylation and copy-number profiles and showed that sparse nanopore methylation data can reproduce medulloblastoma molecular grouping/subtyping with high concordance.
+The study evaluated sparse nanopore methylation data together with genome-wide copy-number profiles and showed high concordance with reference medulloblastoma classification.
 
-**Interpretation:** this is the strongest published evidence that the Montpellier neuropathology/neuro-oncology ecosystem is already connected to a national nanopore CNS-tumour classification effort.
+**Interpretation:** this is the strongest published evidence connecting CHU Montpellier neuropathology / pediatric neuro-oncology to a nanopore CNS-tumour classification programme.
 
 **Critical caveat:** the paper is led by Institut Curie and uses the Curie-developed **NanoCliD** pipeline. Public information does not establish that the Montpellier samples were sequenced locally.
 
@@ -120,185 +123,113 @@ The study evaluated clinically relevant methylation and copy-number profiles and
 
 ---
 
-## 4. Existing local long-read infrastructure
+## 4. Existing CHU hospital infrastructure relevant to feasibility
 
-### Montpellier GenomiX (MGX)
+### Site Unique de Biologie (SUB) Pr Arlette Serre
 
-MGX is located at the Institut de Génomique Fonctionnelle on the Arnaud-de-Villeneuve campus.
+The current CHU organization centralizes almost all laboratory biology in one building. According to the CHU:
 
-The current public platform page lists:
+- **R+2:** anatomo-pathology / biopathology and cytogenetics;
+- **R+3:** molecular genetics, including the **Plateau de Médecine Moléculaire et de Génomique (PMMG)**;
+- **rez-de-jardin:** Centre de Ressources Biologiques and tissue resources;
+- **R+5:** CRIBS, research and innovation.
 
-- Illumina NovaSeq / MiniSeq;
-- **Oxford Nanopore Technologies MinION**;
-- robotic library preparation and quantification;
-- Fragment Analyzer, Qubit and PCR QC equipment;
-- statistical analysis of NGS data.
+The CHU explicitly frames the SUB around **rapid turnaround, hyperspecialized analyses, research and innovation**.
 
-MGX reports **11 staff** and, for 2023, **124 projects for 80 teams from 49 laboratories and one company**. The platform is ISO 9001 and NF X50-900 certified, IBiSA-labelled and part of the France Génomique national infrastructure.
+This organization is relevant because a future CNS long-read workflow would need tight integration between:
 
-The current MGX documentation explicitly lists:
+1. tissue/pathology assessment;
+2. molecular-genomics wet lab;
+3. bioinformatics;
+4. access to frozen/biobanked material;
+5. translational research infrastructure.
 
-- **Construction de banques Long Reads gDNA (Oxford Nanopore Technologies)**;
-- **Construction de banques Long reads Direct RNA-seq (Oxford Nanopore Technologies)**;
-- bioinformatics services including genome assembly and standard sequencing analyses.
+All of these functions are represented within the CHU biology organization.
 
-**Official sources:**
-- https://www.igf.cnrs.fr/plateformes/mgx/
-- https://project.mgx.cnrs.fr/projects/documentation/documents
+### Direct evidence of ONT access/use
 
-### Interpretation for feasibility
+The `PALB2` publication documents actual use of **MinION Mk1B + Flongle** by a CHU-affiliated workflow. This supports local practical experience with ONT technology.
 
-A Montpellier project would therefore not need to create all long-read wet-lab competence de novo. Existing infrastructure covers at least MinION sequencing, long-read library preparation, QC and bioinformatics support.
+However, the publication does **not** establish:
+- ownership of a specific instrument by PMMG;
+- current instrument inventory;
+- routine clinical availability;
+- a validated CNS-specific workflow.
 
-However, the public pages do **not** establish an existing clinical PromethION/GridION service or a validated intraoperative CNS workflow at PMMG/Gui de Chauliac.
+### Official CHU sources
+
+- Site Unique de Biologie: https://www.chu-montpellier.fr/fr/a-propos-du-chu/decouvrir/etablissements/site-unique-de-biologie
+- CRIBS: https://www.chu-montpellier.fr/fr/cribs
+- CHU article describing the SUB organization and PMMG at R+3: https://www.chu-montpellier.fr/fr/information-transversale/actualites/le-pole-biologie-pathologie-se-regenere-8688
 
 ---
 
-## 5. Existing bioinformatics experience relevant to a CNS nanopore workflow
+## 5. Existing CHU bioinformatics experience relevant to a CNS nanopore workflow
 
-### 5.1 CHU Montpellier — MOBIDIC / PMMG
+### MOBIDIC / PMMG
 
-The PALB2 long-read publication explicitly affiliates Simon Cabello-Aguilar with **Montpellier BioInformatics for Clinical Diagnosis (MOBIDIC), Molecular Medicine and Genomics Platform (PMMG), CHU Montpellier**.
+The `PALB2` long-read publication explicitly affiliates **Montpellier BioInformatics for Clinical Diagnosis (MOBIDIC), Molecular Medicine and Genomics Platform (PMMG), CHU Montpellier**.
 
 The reported analysis chain included:
 
-- Guppy basecalling;
-- Minimap2 alignment;
+- ONT basecalling with Guppy;
+- long-read alignment with Minimap2;
 - IGV review;
 - in-house scripts;
-- Sniffles SV calling;
-- RepeatMasker / ClustalW.
+- structural-variant calling with Sniffles;
+- breakpoint-context analysis with RepeatMasker / ClustalW.
 
-This is not yet an end-to-end native CNS-tumour workflow, but it is direct evidence that clinically oriented CHU bioinformatics has already handled ONT long reads and structural-variant analysis.
+### What this demonstrates
 
-### 5.2 MGX bioinformatics support
+There is direct published evidence that CHU bioinformatics has already handled:
 
-MGX states that it provides statistical analysis for NGS applications and lists bioinformatics services. The platform therefore combines sequencing with internal downstream analysis rather than functioning only as a wet-lab core.
-
-A historical University of Montpellier platform fiche also documented substantial dedicated compute/storage and GPU resources. Because hardware inventories change quickly, any future project should verify present-day compute specifications directly with MGX rather than rely on historical numbers.
-
-### 5.3 IGF — active computational oncology with nanopore
-
-The Julie Pannequin / Laia Bassaganyas group runs an official project titled:
-
-**Surveillance de l’ADN tumoral circulant (ADNct) pour l’analyse des récidives du cancer colorectal**.
-
-The project explicitly combines:
-
-- nanopore sequencing;
-- clinical and preclinical genomic data;
-- multimodal ctDNA analysis;
-- CNA / genomic alterations;
-- methylation;
-- fragmentation;
-- computational-method development.
-
-The group describes Laia Bassaganyas' expertise in NGS data analysis, development of bioinformatics tools for cancer genomics/transcriptomics, aneuploidy and structural genomic variants.
-
-**Official sources:**
-- https://www.igf.cnrs.fr/equipes/equipe-pannequin/
-- https://www.igf.cnrs.fr/equipes/equipe-pannequin/projet-surveillance-de-ladn-tumoral-circulant-pour-lanalyse-des-recidives-du-cancer-colorectal/
-
-### 5.4 2025 MSc Bioinformatics — low-pass CNA pipeline
-
-A 2025 University of Montpellier MSc Bioinformatics project supervised by **Laia Bassaganyas** was titled:
-
-**Séquençage long-read pour le développement d’un outil multimodal destiné au suivi du cancer colorectal à partir de biopsie liquide**.
-
-The work focused on bioinformatic CNA analysis from simulated and real data and included:
-
-- benchmarking `ichorCNA`;
-- benchmarking `ACE`;
-- benchmarking `QDNAseq`;
-- implementation of a pipeline adapted to **low-pass whole-genome sequencing**.
-
-This is directly relevant to the computational problem of extracting large-scale copy-number information from shallow genome-wide data.
-
-**Source:** https://informatique-fds.edu.umontpellier.fr/files/2025/06/Programme.pdf
-
-### 5.5 Bioinformatics Learning Lab (BILL)
-
-The University of Montpellier Bioinformatics Learning Lab documents a MinION-based proof-of-concept dating back to 2017–2018 in which students generated molecular data and performed downstream bioinformatics analysis, contributing to a peer-reviewed publication.
-
-**Source:** https://informatique-fds.edu.umontpellier.fr/etudiants/masters-transdisciplinaires/master-bioinformatique/bill-bioinformatics-learning-lab/
-
-### Overall interpretation
-
-Montpellier already has experience across several computational blocks that would be needed for a future CNS long-read feasibility workflow:
-
-- ONT basecalling;
+- ONT reads;
 - long-read mapping;
-- structural-variant calling;
+- structural-variant detection;
 - custom scripting;
-- low-pass whole-genome CNA analysis;
-- multimodal nanopore data analysis;
-- NGS statistical/bioinformatics platform support.
+- breakpoint interpretation.
 
-What is **not** publicly documented is a validated local end-to-end pipeline integrating **rapid CNS methylation classification + CNV + optional SNV/SV** in a clinical or intraoperative setting.
+This is directly relevant to the computational component of a future CNS long-read workflow.
 
----
+### What it does not demonstrate
 
-## 6. Active oncology research in Montpellier using the same conceptual model
+It does **not** show that CHU Montpellier already has a validated local pipeline for:
 
-The Pannequin/Bassaganyas ctDNA project is particularly relevant conceptually because it aims to derive multiple signals from the same native DNA sample:
+- sparse methylation CNS classification;
+- rapid genome-wide CNV calling from low-pass ONT data;
+- integrated CNS methylation + CNV + SNV/SV reporting;
+- intraoperative real-time analysis.
 
-- genomic alterations / CNA;
-- methylation;
-- fragmentation;
-- low tumour-fraction / MRD information.
-
-This is close to the multimodal philosophy of current CNS nanopore approaches, even though the biological material and clinical question are different.
+Those capabilities would need to be demonstrated rather than assumed.
 
 ---
 
-## 7. Other Montpellier ONT experience
-
-### CNR Leishmanioses / parasitology
-
-A CHU/UM CNR report describes MinION long-read WGS development/validation for *Leishmania*, independently demonstrating hands-on experience with high-molecular-weight DNA, MinION sequencing and genome assembly in the Montpellier hospital-university biology environment.
-
-This is not oncology and should be treated only as supporting technical context.
-
-### University training / outreach
-
-The University of Montpellier has an official MinION video and educational activity around third-generation sequencing:
-
-- **OSNI – MinION (version longue)**: https://video.umontpellier.fr/video/15585-osni-minion-version-longue/
-- BILL page: https://informatique-fds.edu.umontpellier.fr/etudiants/masters-transdisciplinaires/master-bioinformatique/bill-bioinformatics-learning-lab/
-
-Again, these are contextual indicators of local familiarity rather than proof of clinical deployment.
-
----
-
-## 8. Evidence grading
+## 6. Evidence grading — CHU Montpellier only
 
 | Question | Current public evidence |
 |---|---|
-| Is long-read sequencing used in Montpellier? | **Yes — strong** |
-| At CHU Montpellier? | **Yes — strong** |
-| In oncology? | **Yes — strong for oncogenetics/research**, not demonstrated as broad routine tumour WGS |
-| For CNS tumours? | **Yes as multicentre research participation** — medulloblastoma 2025 |
-| Is Valérie Rigau linked to published CNS nanopore work? | **Yes — directly, as co-author** |
+| Long-read sequencing already used by CHU teams? | **Yes — strong** |
+| ONT/MinION already used in a CHU oncology-related workflow? | **Yes — PALB2 2024** |
+| Existing CHU bioinformatics experience with ONT/SV? | **Yes — MOBIDIC/PMMG + PALB2 workflow** |
+| CHU participation in a nanopore CNS-tumour study? | **Yes — medulloblastoma 2025** |
+| Valérie Rigau linked to published CNS nanopore work? | **Yes — directly as co-author** |
+| Frozen CNS tissue represented in that study? | **Yes** |
 | Local CNS nanopore sequencing physically performed at CHU? | **Not proven publicly** |
 | Intraoperative CNS nanopore diagnosis at Gui de Chauliac? | **No public evidence found** |
-| Local ONT-capable sequencing platform? | **Yes — MGX MinION** |
-| Local long-read library preparation? | **Yes — MGX gDNA and direct RNA-seq ONT services** |
-| Existing CHU bioinformatics experience with ONT/SV? | **Yes — PALB2 / MOBIDIC-PMMG** |
-| Existing local low-pass CNA bioinformatics experience? | **Yes — IGF / MSc Bioinformatics project** |
-| Active local multimodal oncology nanopore research? | **Yes — IGF colorectal ctDNA project** |
+| Hospital infrastructure linking pathology, molecular genetics, CRB and research? | **Yes — SUB / PMMG / CRIBS** |
+| Current CHU ONT instrument inventory publicly documented? | **No** |
+| Validated local CNS methylation + CNV bioinformatics pipeline? | **No public evidence found** |
 
 ---
 
-## 9. Key local journal references
+## 7. Key CHU-linked journal references
 
 1. Perrin A, et al. *J Mol Diagn.* 2022. DOI `10.1016/j.jmoldx.2022.04.006`.
 2. Ban IO, et al. *Front Oncol.* 2024. DOI `10.3389/fonc.2024.1355715`.
 3. **Filser M, et al. *Neuro-Oncology.* 2025. DOI `10.1093/neuonc/noae279` — includes Valérie Rigau and Gilles Palenzuela, CHU Montpellier.**
 
-## 10. Bottom line
+## 8. Bottom line
 
-The public evidence supports a precise formulation:
+The CHU-specific evidence supports a deliberately conservative formulation:
 
-> Montpellier does not appear to have a publicly documented routine intraoperative nanopore CNS-tumour diagnostic service, but it already has **relevant wet-lab infrastructure, long-read clinical/research experience, ONT structural-variant bioinformatics, low-pass CNA expertise, an active multimodal nanopore oncology project, and direct neuropathology/neuro-oncology participation in a published medulloblastoma nanopore classification study**.
-
-That distinction should be preserved in any future scientific or funding document: **the site is not starting from zero, but the specific rapid integrated CNS workflow still appears to require local development and validation.**
+> **CHU Montpellier already has published long-read experience, documented ONT/MinION use in an oncology-related workflow, CHU-based long-read/SV bioinformatics through MOBIDIC-PMMG, a centralized molecular-genomics/pathology infrastructure at the Site Unique de Biologie, and direct participation of its neuropathology/neuro-oncology teams in a published nanopore medulloblastoma classification study. What is not publicly documented is a local validated rapid or intraoperative nanopore CNS-tumour diagnostic workflow.**

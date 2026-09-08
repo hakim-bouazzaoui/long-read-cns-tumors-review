@@ -1,6 +1,6 @@
 # Projet JC 2026 — validation du séquençage nanopore sur tumeurs du SNC
 
-**Version :** v0.1 — mise à jour audit réactifs du 2026-09-08  
+**Version :** v0.1 — mise à jour du rationnel clinique du 2026-09-08  
 **Statut :** manuscrit scientifique de travail — non finalisé  
 **AAP :** Jeunes Chercheurs Tremplin 2026 — CHU Montpellier  
 **Références de travail :** `references.bib`, `references.md`, `clinical_impact_perioperative.md`, `methodology_AAP_JC2026_2026-09-08.md`, `montpellier_landscape_2026-09-07.md`, `budget_previsionnel.md`, `budget_previsionnel_AAP_JC2026.xlsx`, `TO_DO.md`
@@ -21,62 +21,84 @@
 
 ## 2. Résumé scientifique
 
-Le diagnostic des tumeurs du système nerveux central (SNC) repose sur une approche intégrée associant morphologie, immunohistochimie et analyses moléculaires. Au CHU de Montpellier, le diagnostic de référence est établi en routine sur tissu fixé et inclus en paraffine (FFPE). Les approches de classification fondées sur la méthylation de l’ADN ont profondément modifié la nosologie des tumeurs du SNC, mais les circuits diagnostiques conventionnels restent essentiellement différés.
+La chirurgie constitue un temps majeur de la prise en charge de nombreuses tumeurs du système nerveux central (SNC). L’objectif opératoire doit cependant être adapté à une double contrainte : maximiser le bénéfice oncologique de la résection tout en préservant la fonction neurologique. Or, au moment de l’intervention, cette décision repose encore largement sur l’imagerie, l’exploration chirurgicale, le monitoring fonctionnel et l’examen extemporané, alors que le diagnostic intégré définitif — incluant les données moléculaires — n’est disponible qu’après coup sur tissu fixé et inclus en paraffine (FFPE).
 
-Le séquençage Oxford Nanopore permet l’analyse directe de l’ADN natif, y compris de sa méthylation, et plusieurs classifieurs pré-entraînés ont montré qu’une classification fiable des tumeurs du SNC pouvait être obtenue à partir de profils de méthylation parcimonieux. Parmi les approches les mieux documentées figurent crossNN/nanoDx, Sturgeon, MethyLYZR et MNP-Flex.
+Cette temporalité constitue une limite clinique. Plusieurs travaux montrent qu’une information moléculaire disponible pendant l’intervention peut réduire l’incertitude diagnostique et contribuer à orienter la stratégie chirurgicale. Dans l’étude de Djirackor et al., une classification moléculaire peropératoire aurait soutenu une modification de stratégie dans **12 des 20 cas intraopératoires (60 %)**. Plus récemment, dans une cohorte pédiatrique prospective de 94 patients, l’utilisation clinique de Sturgeon a **modifié la stratégie chirurgicale dans 14,3 % des cas informatifs**, vers une résection plus ou moins étendue selon la situation. Les auteurs rapportent également une faible morbidité et moins de chirurgies de second look, sans que ces associations permettent à elles seules d’établir un bénéfice causal. Chez l’adulte, une étude prospective multicentrique de 296 patients atteints de gliome diffus a montré qu’un diagnostic moléculaire rapide pouvait corriger en temps réel des interprétations extemporanées erronées, notamment des lésions initialement considérées comme gliomes de bas grade ou glioses.
 
-L’objectif principal de ce projet est d’évaluer, dans les conditions réelles de prise en charge au CHU de Montpellier, si le séquençage nanopore d’un prélèvement tumoral congelé provenant de la même intervention permet d’obtenir une classification diagnostique concordante avec le diagnostic intégré final établi en routine sur FFPE.
+L’intérêt d’une caractérisation moléculaire rapide ne se limite donc pas à « gagner du temps ». Il est de fournir, pendant la fenêtre décisionnelle chirurgicale, une information plus précise sur l’identité et la biologie tumorales susceptible d’aider à arbitrer entre poursuite de la résection, préservation fonctionnelle et nécessité éventuelle d’une nouvelle intervention. Les données rétrospectives disponibles dans le glioblastome suggèrent en outre que le bénéfice d’une résection maximale pourrait différer selon les sous-classes de méthylation, renforçant le rationnel d’une chirurgie informée par la biologie tumorale, tout en nécessitant encore une validation prospective.
 
-Il s’agira d’une étude prospective, monocentrique, comparative et appariée de performance diagnostique. Le résultat nanopore constituera le test index et le diagnostic intégré final sur FFPE le standard de référence. La cohorte principale sera analysée en multiplexage de six échantillons par flow cell afin d’évaluer la performance diagnostique dans une configuration économiquement soutenable. Une sous-cohorte prédéfinie sera séquencée en singleplex ou faible multiplexage afin de caractériser la cinétique réelle d’acquisition de l’information moléculaire et d’estimer la transposabilité future du workflow à une utilisation peropératoire.
+Le séquençage Oxford Nanopore est particulièrement adapté à cette perspective : il permet l’analyse directe de l’ADN natif et de sa méthylation, génère les données en temps réel et peut fournir, à faible couverture, une classification moléculaire accompagnée d’informations de nombre de copies. Des workflows récents tels que Sturgeon, Rapid-CNS2, iSCORED ou ROBIN ont montré qu’une information de méthylation et/ou de CNV pouvait être obtenue dans une fenêtre compatible avec l’intervention chirurgicale. Plusieurs classifieurs pré-entraînés — crossNN/nanoDx, Sturgeon, MethyLYZR et MNP-Flex — permettent désormais d’exploiter ces données sans devoir constituer localement une cohorte d’entraînement de plusieurs milliers de tumeurs.
 
-Après audit des réactifs disponibles et des protocoles actuels, le **Rapid Barcoding Kit V14 (`SQK-RBK114.24`) sur flow cell R10.4.1 (`FLO-MIN114`)** est retenu comme workflow de référence pour la planification du projet. Il est PCR-free, compatible avec l’analyse des modifications de bases et limite le nombre de réactifs externes et le temps de préparation. Les workflows Native Barcoding et Ligation V14 seront conservés comme alternatives techniques. Le protocole RRMS actuel n’est pas retenu pour l’étude principale car il repose sur une stratégie PromethION/adaptive sampling à quatre échantillons, avec fragmentation, lavages de flow cell et séquençage prolongé, qui ne correspond ni à l’objectif de diagnostic rapide ni aux contraintes budgétaires de l’AAP.
+Avant d’envisager une utilisation clinique peropératoire au CHU de Montpellier, une étape préalable est néanmoins indispensable : démontrer que le workflow nanopore réalisé localement sur tissu tumoral congelé reproduit de manière fiable le diagnostic intégré de référence établi en routine sur FFPE.
 
-Les mêmes données nanopore seront analysées par plusieurs classifieurs publiés et pré-entraînés. Aucun modèle ne sera entraîné ou optimisé sur la cohorte locale pour l’analyse principale. Le critère principal sera le taux de diagnostics nanopore concordants avec le diagnostic intégré de référence dans une approche en intention-to-diagnose, les échecs techniques et résultats non conclusifs étant intégrés comme échecs du workflow.
+L’objectif principal de ce projet est donc d’évaluer, dans les conditions réelles de prise en charge au CHU de Montpellier, la concordance diagnostique entre le séquençage nanopore d’un prélèvement tumoral congelé et le diagnostic intégré final établi en routine sur FFPE.
 
-Le projet s’appuie sur une infrastructure déjà disponible au CHU Montpellier : séquenceurs nanopore, expertise en biologie moléculaire, expérience locale du long-read et compétences bioinformatiques au PMMG/MOBIDIC. Si les performances diagnostiques et la cinétique observée sont compatibles avec les objectifs prédéfinis, cette étude constituera le socle méthodologique d’une seconde phase prospective en situation peropératoire.
+Il s’agira d’une étude prospective, monocentrique, comparative et appariée de performance diagnostique. La cohorte principale sera analysée en multiplexage de six échantillons par flow cell afin d’évaluer la performance diagnostique dans une configuration économiquement soutenable. Une sous-cohorte prédéfinie sera séquencée en singleplex ou faible multiplexage afin de caractériser la cinétique réelle d’acquisition de l’information moléculaire et d’estimer la transposabilité future du workflow à une utilisation peropératoire.
+
+Après audit des réactifs disponibles et des protocoles actuels, le **Rapid Barcoding Kit V14 (`SQK-RBK114.24`) sur flow cell R10.4.1 (`FLO-MIN114`)** est retenu comme workflow de référence pour la planification du projet. Les mêmes données nanopore seront analysées par plusieurs classifieurs publiés et pré-entraînés, sans réentraînement ni optimisation sur la cohorte locale pour l’analyse principale. Le critère principal sera le taux de diagnostics nanopore concordants avec le diagnostic intégré de référence dans une approche en intention-to-diagnose, intégrant les échecs techniques et résultats non conclusifs.
+
+Le projet s’appuie sur une infrastructure déjà disponible au CHU Montpellier : séquenceurs nanopore, expertise en biologie moléculaire, expérience locale du long-read et compétences bioinformatiques au PMMG/MOBIDIC. Si les performances diagnostiques et la cinétique observée sont compatibles avec les objectifs prédéfinis, cette étude constituera le socle méthodologique d’une seconde phase prospective évaluant l’impact clinique d’un diagnostic moléculaire peropératoire sur la stratégie chirurgicale.
 
 ---
 
 ## 3. Contexte scientifique et médical
 
-### 3.1. Une classification désormais intégrée et moléculaire
+### 3.1. La décision chirurgicale est prise avant le diagnostic intégré définitif
 
-La classification des tumeurs du SNC a évolué d’une approche essentiellement morphologique vers une nosologie intégrée combinant histologie et caractéristiques moléculaires. La classification par méthylation de l’ADN est devenue un outil diagnostique majeur, notamment depuis les travaux fondateurs de Capper et al., puis son intégration progressive dans les pratiques diagnostiques et les recommandations de l’OMS, de l’EANO et de cIMPACT-NOW.
+Pour de nombreuses tumeurs du SNC, la chirurgie constitue à la fois un temps diagnostique et thérapeutique. L’étendue de résection est associée au pronostic dans plusieurs entités, mais toute résection supplémentaire doit être mise en balance avec le risque de déficit neurologique. Les recommandations contemporaines de chirurgie des gliomes insistent ainsi sur une approche individualisée combinant bénéfice oncologique attendu, localisation fonctionnelle, monitoring peropératoire et caractéristiques propres au patient et à la tumeur.
 
-Cette approche peut confirmer un diagnostic, résoudre des cas morphologiquement ambigus, identifier des entités non reconnues initialement et fournir des informations complémentaires à partir des profils de nombre de copies. Son intérêt est particulièrement marqué dans les tumeurs rares ou difficiles à classifier.
+Cette décision est cependant prise alors que le diagnostic intégré définitif n’est pas encore disponible. L’examen extemporané apporte une information morphologique rapide mais peut rester indéterminé ou être discordant avec le diagnostic final, en particulier dans certaines tumeurs diffuses, rares ou morphologiquement ambiguës. Les données moléculaires nécessaires à la classification actuelle — mutations, altérations de nombre de copies et profils de méthylation — sont généralement obtenues secondairement sur FFPE.
 
-Dans le circuit diagnostique actuel du CHU Montpellier, l’analyse de référence repose sur le matériel FFPE et associe anatomopathologie, immunohistochimie et analyses moléculaires adaptées au contexte clinique.
+La conséquence clinique potentielle est double : une chirurgie peut être arrêtée alors qu’une résection plus complète aurait été souhaitable, ou au contraire être poursuivie alors que le bénéfice oncologique attendu d’une résection supplémentaire est incertain au regard du risque fonctionnel. Dans certaines situations, une caractérisation diagnostique tardive peut également conduire à discuter une chirurgie secondaire.
 
-### 3.2. Limites du circuit diagnostique conventionnel
+### 3.2. Pourquoi une caractérisation moléculaire précise peut modifier la stratégie opératoire
 
-Le diagnostic intégré conventionnel est robuste mais nécessite plusieurs étapes successives : fixation, inclusion, préparation histologique, analyses immunohistochimiques puis analyses moléculaires complémentaires. Ce circuit est adapté au diagnostic final mais n’est pas conçu pour produire une information moléculaire à très court délai.
+L’intérêt d’une analyse tumorale précise pendant l’intervention ne réside pas uniquement dans l’accélération du diagnostic. Il réside dans la possibilité de fournir une information biologique supplémentaire au moment où la stratégie chirurgicale est encore modifiable.
 
-Le présent projet ne vise pas à introduire immédiatement le nanopore dans la décision peropératoire. Il vise d’abord à répondre à une question préalable : **le résultat obtenu sur un prélèvement congelé local est-il suffisamment concordant avec le diagnostic intégré FFPE pour justifier une étude ultérieure en temps réel ?**
+Djirackor et al. ont montré dès 2021 qu’une classification peropératoire de la méthylation pouvait être obtenue avec un résultat médian transmis au bloc en 97 minutes. Dans les 20 cas évalués spécifiquement pour l’impact décisionnel, le résultat moléculaire **aurait soutenu une modification de la stratégie chirurgicale dans 12 cas (60 %)**. Les exemples rapportés illustrent les deux directions possibles : éviter une sous-résection et potentiellement une seconde intervention lorsque l’examen extemporané est trompeur, mais aussi éviter une résection additionnelle à haut risque lorsque le bénéfice oncologique attendu paraît limité.
 
-### 3.3. Nanopore et classification des tumeurs du SNC
+La preuve clinique la plus directe provient actuellement de la population pédiatrique. Dans l’étude de Sie et al. publiée en 2026, 94 patients consécutifs ont bénéficié d’une classification nanopore Sturgeon intégrée au circuit peropératoire. Lorsqu’il était informatif, le résultat soutenait la stratégie prévue dans 85,7 % des cas et **modifiait effectivement la stratégie chirurgicale dans 14,3 % des cas**, vers une résection plus ou moins agressive. Les auteurs rapportent également une faible complication et moins de procédures de second look. Ces résultats constituent une preuve de principe forte de l’utilité clinique possible, mais ne doivent pas être extrapolés directement à l’adulte.
+
+Chez l’adulte, Wu et al. ont apporté une démonstration complémentaire dans une cohorte prospective multicentrique de 296 patients atteints de gliome diffus. Un test moléculaire rapide `IDH1/2`/`TERTp` obtenu en environ 35 minutes a permis de reclasser **40 tumeurs initialement interprétées comme gliomes de bas grade** en faveur d’un glioblastome IDH-wildtype et d’identifier **20 lésions interprétées comme glioses** comme de véritables gliomes diffus. Cette étude, bien que fondée sur une méthode PCR et non nanopore, montre directement qu’une information moléculaire disponible pendant l’intervention peut corriger une interprétation morphologique et influencer la décision opératoire.
+
+### 3.3. La biologie tumorale peut conditionner le bénéfice attendu de la résection
+
+L’intérêt potentiel d’une information moléculaire peropératoire dépasse la seule correction du diagnostic extemporané. Dans une série multicentrique de 430 glioblastomes IDH-wildtype, Drexler et al. ont observé que l’association entre étendue de résection et survie différait selon la sous-classe de méthylation : un bénéfice de résection maximale était observé dans les sous-classes RTK I et RTK II, mais pas de manière significative dans la sous-classe mésenchymateuse. Ces données sont rétrospectives et ne constituent pas une règle de décision validée, mais elles soutiennent l’idée qu’une stratégie chirurgicale uniforme ne reflète pas nécessairement la diversité biologique des glioblastomes.
+
+Les travaux de synthèse récents sur la chirurgie de précision du glioblastome et les recommandations PIONEER/RANO resect convergent vers un modèle dans lequel l’étendue de résection doit être individualisée en tenant compte du bénéfice oncologique attendu, du risque fonctionnel et, à terme, d’informations biologiques obtenues pendant l’intervention. Dans ce contexte, une classification moléculaire rapide n’est pas un simple outil de laboratoire : elle peut devenir une variable supplémentaire de décision chirurgicale.
+
+### 3.4. Le nanopore permet d’apporter une information moléculaire riche dans la fenêtre opératoire
 
 Le séquençage nanopore présente plusieurs propriétés adaptées à cette question : analyse d’ADN natif, détection directe de la méthylation, production des données en temps réel et possibilité d’analyse à faible couverture.
 
-Plusieurs travaux ont montré la faisabilité d’une classification moléculaire des tumeurs cérébrales par nanopore, depuis les premières démonstrations de classification peropératoire jusqu’aux approches récentes intégrant méthylation, CNV et parfois d’autres altérations moléculaires.
+Vermeulen et al. ont montré avec Sturgeon qu’une classification sparse de la méthylation pouvait être délivrée en moins de 90 minutes pendant de vraies interventions. Rapid-CNS2 a ensuite été validé prospectivement et multicentriquement : dans 18 workflows réellement réalisés en peropératoire, les informations combinant méthylation et CNV apportaient une information cliniquement pertinente au-delà de la morphologie dans **13 cas sur 18 (72,2 %)**, même si ces résultats n’étaient pas encore utilisés pour modifier la chirurgie. iSCORED a démontré qu’une combinaison méthylation + CNV pouvait être obtenue en environ 105 minutes dans des tumeurs diagnostiquement difficiles, et ROBIN a montré la faisabilité d’un assay unique fournissant classification, CNV et autres altérations moléculaires dans une fenêtre de moins de deux heures.
 
-Les outils actuellement les plus pertinents comprennent notamment :
+L’intérêt du nanopore est donc de dépasser une stratégie de quelques hotspots. Chez l’adulte, une classification intégrée peut nécessiter des informations telles que `+7/-10`, `1p/19q`, `CDKN2A/B`, amplifications oncogéniques ou profil de méthylation. Une approche genome-wide à faible couverture permet d’envisager une information plus riche et plus directement transposable au diagnostic intégré moderne.
+
+Parmi les classifieurs actuellement les plus pertinents figurent :
 
 - **crossNN / nanoDx**, classifieur sparse et cross-platform disposant d’un modèle CNS pré-entraîné et d’un code reproductible ;
 - **Sturgeon**, développé pour la classification peropératoire à partir de profils nanopore très parcimonieux ;
 - **MethyLYZR**, approche probabiliste légère adaptée à la classification rapide de données de méthylation sparse ;
 - **MNP-Flex**, approche récente dérivée d’une référence CNS plus large et compatible avec plusieurs plateformes, sous réserve de son accessibilité dans le cadre du projet.
 
-Ces outils reposent sur de grandes références externes et ne nécessitent pas de constituer localement une cohorte de plusieurs milliers de tumeurs pour être évalués.
+Ces outils reposent sur de grandes références externes et peuvent être évalués localement sans entraîner une nouvelle « IA maison » sur une cohorte insuffisante.
 
-### 3.4. Positionnement du projet
+### 3.5. Positionnement du projet : une étape de validation avant l’étude d’impact clinique
 
-L’objectif n’est pas de développer une « IA locale » ni de réentraîner un classifieur sur une cohorte de taille insuffisante. Le projet repose sur une logique de **validation externe comparative** : appliquer plusieurs classifieurs indépendants, déjà entraînés et publiés, aux mêmes données nanopore produites localement, puis mesurer leur concordance avec le diagnostic intégré réel des patients.
+La littérature établit désormais trois éléments : la classification moléculaire rapide est techniquement possible pendant une intervention ; une information moléculaire peropératoire peut corriger le diagnostic extemporané et modifier la stratégie chirurgicale ; et la biologie tumorale pourrait contribuer à déterminer le bénéfice attendu d’une résection plus extensive.
+
+En revanche, chez l’adulte, il manque encore une démonstration prospective robuste qu’un workflow nanopore intégré améliore effectivement des critères cliniques tels que la stratégie opératoire, l’étendue de résection, le taux de seconde chirurgie, la morbidité neurologique ou la qualité de vie. Il serait donc prématuré d’utiliser directement cette information pour guider la chirurgie sans validation locale préalable.
+
+Le présent projet constitue cette étape préalable. Il ne cherche pas encore à démontrer un bénéfice chirurgical. Il vise à établir si un workflow nanopore réalisé au CHU de Montpellier sur tissu congelé est suffisamment fiable, reproductible, rapide et économiquement soutenable pour justifier ensuite une étude prospective peropératoire.
+
+La stratégie repose sur une **validation externe comparative** : appliquer plusieurs classifieurs indépendants, déjà entraînés et publiés, aux mêmes données nanopore produites localement, puis mesurer leur concordance avec le diagnostic intégré réel des patients.
 
 Cette stratégie doit répondre à trois questions :
 
 1. le nanopore permet-il de reproduire le diagnostic intégré conventionnel dans notre population ?
 2. quels classifieurs sont les plus robustes, et dans quelles situations échouent-ils ?
-3. quelle quantité de données est nécessaire avant que la classification devienne correcte et stable ?
+3. quelle quantité de données est nécessaire avant que la classification devienne correcte et stable, dans une perspective de future utilisation peropératoire ?
 
 ---
 
@@ -420,7 +442,7 @@ L’audit confirme que le coût ne doit pas être évalué uniquement à partir 
 - **LSK114** nécessite le NEB Companion Module v2 `E7672`; le coût du kit LSK standard est de 105 € HT par librairie avant flow cell et réactifs externes.
 - **RRMS** implique PromethION, g-TUBE, réactifs NEB, extensions de buffer et lavages répétés. Pour 150 patients, un scénario conservateur recalculé atteint environ **74,4 k€ HT** avec l’hypothèse CRB basse et une marge de 10 %, avant promotion, méthodologie, personnel ou autres coûts institutionnels. Il n’est donc pas compatible avec le plafond de 60 k€ et n’est pas retenu.
 
-Le classeur `budget_previsionnel_AAP_JC2026.xlsx` comporte désormais des onglets `Audit_reactifs` et `Comparatif_protocoles` permettant de tracer ces corrections et de modifier les hypothèses.
+Le classeur `budget_previsionnel_AAP_JC2026.xlsx` permet de modifier les hypothèses et de recalculer automatiquement les coûts.
 
 > **TO DO — COÛTS INSTITUTIONNELS / MARCHÉ CHU**  
 > - Prix marché `FLO-MIN114` : `.................... € HT`  
@@ -507,15 +529,19 @@ L’étude doit permettre d’obtenir une réponse quantitative à la question p
 
 Elle permettra également de mesurer le taux réel de résultats non conclusifs, comparer plusieurs classifieurs indépendants, identifier les types d’erreurs et leurs déterminants, définir la quantité minimale de données nécessaire à une classification fiable, mesurer une cinétique réaliste dans une configuration compatible avec une future utilisation peropératoire et établir un coût par patient dans les conditions locales.
 
+Ces résultats doivent permettre de déterminer si le niveau de fiabilité obtenu est suffisant pour passer à une étude d’impact clinique où le résultat moléculaire serait rendu pendant l’intervention et évalué comme aide à la décision chirurgicale.
+
 ---
 
 ## 17. Perspectives et effet levier
 
-Le projet est conçu comme une étape de validation préalable à un changement potentiel de temporalité diagnostique.
+Le projet est conçu comme une étape de validation préalable à un changement potentiel de temporalité diagnostique et, à terme, de prise en charge chirurgicale.
 
 Si la concordance diagnostique, le taux de succès technique et les délais sont compatibles avec les objectifs prédéfinis, une seconde étude prospective pourra tester le workflow en situation peropératoire, avec implication directe des équipes de neurochirurgie et de neuropathologie.
 
-Cette seconde phase devra répondre à une question différente : **une information moléculaire disponible pendant l’intervention modifie-t-elle de manière pertinente la stratégie chirurgicale ou la prise en charge immédiate ?**
+Cette seconde phase devra répondre à une question différente : **une information moléculaire disponible pendant l’intervention modifie-t-elle de manière pertinente la stratégie chirurgicale et améliore-t-elle la qualité de la prise en charge ?**
+
+Les critères cliniques pertinents devront alors inclure notamment : modification de la stratégie opératoire prévue, étendue de résection obtenue, nécessité d’une chirurgie de second look, nouveaux déficits neurologiques, fonction, qualité de vie et, à plus long terme, résultats oncologiques.
 
 L’effet levier attendu comprend :
 
@@ -549,13 +575,18 @@ Références particulièrement structurantes :
 4. Djirackor L, et al. *Neuro-Oncology Advances*. 2021. Intraoperative DNA methylation classification of brain tumors impacts neurosurgical strategy.
 5. Kuschel LP, et al. *Neuropathology and Applied Neurobiology*. 2023. Robust methylation-based classification of brain tumours using nanopore sequencing.
 6. Vermeulen C, et al. *Nature*. 2023. Ultra-fast deep-learned CNS tumour classification during surgery.
-7. Brändl B, et al. *Nature Medicine*. 2025. Rapid brain tumor classification from sparse epigenomic data.
-8. Patel A, et al. *Nature Medicine*. 2025. Prospective multicenter validation of Rapid-CNS2.
-9. Yuan D, et al. *Nature Cancer*. 2025. crossNN.
-10. Deacon S, et al. *Neuro-Oncology*. 2025. ROBIN.
-11. Filser M, et al. *Neuro-Oncology*. 2025. Nanopore sequencing as a cutting-edge technology for medulloblastoma classification.
-12. Aldape K, et al. *Neuro-Oncology Advances*. 2025. cIMPACT-NOW update 9 on genome-wide DNA methylation profiling.
-13. Sie M, et al. *Neuro-Oncology*. 2026. How “Sturgeon” guides the surgeon in pediatric neuro-oncology.
+7. Drexler R, et al. *Neuro-Oncology*. 2023. DNA methylation subclasses predict the benefit from gross total tumor resection in IDH-wildtype glioblastoma patients.
+8. Brändl B, et al. *Nature Medicine*. 2025. Rapid brain tumor classification from sparse epigenomic data.
+9. Wu et al. *BMC Medicine*. 2025. Rapid diagnosis of adult-type diffuse glioma using a layered scheme.
+10. Patel A, et al. *Nature Medicine*. 2025. Prospective multicenter validation of Rapid-CNS2.
+11. Emiliani et al. *Genome Medicine*. 2025. Nanopore-based random genomic sampling for intraoperative molecular diagnosis.
+12. Yuan D, et al. *Nature Cancer*. 2025. crossNN.
+13. Deacon S, et al. *Neuro-Oncology*. 2025. ROBIN.
+14. Drexler R, Lim M, Hervey-Jumper SL. *Neuro-Oncology*. 2025. Molecular-based decision-making in glioblastoma surgery.
+15. Filser M, et al. *Neuro-Oncology*. 2025. Nanopore sequencing as a cutting-edge technology for medulloblastoma classification.
+16. Aldape K, et al. *Neuro-Oncology Advances*. 2025. cIMPACT-NOW update 9 on genome-wide DNA methylation profiling.
+17. PIONEER Consortium / RANO resect. *Lancet Oncology*. 2026. Comprehensive framework for glioma surgery, parts 1 and 2.
+18. Sie M, et al. *Neuro-Oncology*. 2026. How “Sturgeon” guides the surgeon in pediatric neuro-oncology.
 
 ---
 
@@ -587,4 +618,4 @@ Voir `TO_DO.md` pour le suivi détaillé.
 
 ## 21. Statut de la version v0.1
 
-Cette version contient une trame scientifique suffisamment complète pour servir de base à la rédaction du dossier JC 2026. L’audit des réactifs a permis de consolider le choix d’un workflow Rapid Barcoding pour la planification, d’exclure RRMS du protocole principal et d’améliorer le réalisme budgétaire. Les inconnues restantes sont principalement institutionnelles, réglementaires et quantitatives ; elles ne remettent pas en cause la question scientifique ni le design général du projet.
+Cette version contient une trame scientifique suffisamment complète pour servir de base à la rédaction du dossier JC 2026. Le rationnel clinique est désormais centré sur l’objectif translationnel du projet : valider localement une classification moléculaire rapide susceptible, dans une phase ultérieure, d’être utilisée comme aide à la décision chirurgicale. L’audit des réactifs a consolidé le choix d’un workflow Rapid Barcoding pour la planification et amélioré le réalisme budgétaire. Les inconnues restantes sont principalement institutionnelles, réglementaires et quantitatives ; elles ne remettent pas en cause la question scientifique ni le design général du projet.

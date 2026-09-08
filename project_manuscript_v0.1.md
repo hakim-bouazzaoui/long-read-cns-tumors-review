@@ -1,7 +1,7 @@
 # Projet JC 2026 — validation du séquençage nanopore sur tumeurs du SNC
 
-**Version :** v0.1 — 2026-09-08  
-**Statut :** premier manuscrit scientifique de travail  
+**Version :** v0.1 — mise à jour audit réactifs du 2026-09-08  
+**Statut :** manuscrit scientifique de travail — non finalisé  
 **AAP :** Jeunes Chercheurs Tremplin 2026 — CHU Montpellier  
 **Références de travail :** `references.bib`, `references.md`, `clinical_impact_perioperative.md`, `methodology_AAP_JC2026_2026-09-08.md`, `montpellier_landscape_2026-09-07.md`, `budget_previsionnel.md`, `budget_previsionnel_AAP_JC2026.xlsx`, `TO_DO.md`
 
@@ -15,25 +15,25 @@
 **Validation prospective du séquençage nanopore sur tissu tumoral congelé pour la classification moléculaire des tumeurs du système nerveux central**
 
 > **TO DO — TITRE / ACRONYME**  
-> Définir un acronyme court, mémorisable et non artificiel après stabilisation du périmètre final.
+> Définir un acronyme court et mémorisable après stabilisation du périmètre final.
 
 ---
 
 ## 2. Résumé scientifique
 
-Le diagnostic des tumeurs du système nerveux central (SNC) repose aujourd’hui sur une approche intégrée associant morphologie, immunohistochimie et analyses moléculaires. Au CHU de Montpellier, ce diagnostic de référence est établi en routine sur tissu fixé et inclus en paraffine (FFPE). Les approches de classification fondées sur la méthylation de l’ADN ont profondément modifié la nosologie des tumeurs du SNC et sont désormais intégrées aux recommandations diagnostiques contemporaines. Toutefois, les méthodes de référence reposent encore le plus souvent sur des circuits analytiques différés.
+Le diagnostic des tumeurs du système nerveux central (SNC) repose sur une approche intégrée associant morphologie, immunohistochimie et analyses moléculaires. Au CHU de Montpellier, le diagnostic de référence est établi en routine sur tissu fixé et inclus en paraffine (FFPE). Les approches de classification fondées sur la méthylation de l’ADN ont profondément modifié la nosologie des tumeurs du SNC, mais les circuits diagnostiques conventionnels restent essentiellement différés.
 
-Le séquençage Oxford Nanopore permet l’analyse directe de l’ADN natif, y compris de sa méthylation, et plusieurs classifieurs pré-entraînés ont récemment démontré qu’une classification fiable des tumeurs du SNC pouvait être obtenue à partir de profils de méthylation très parcimonieux. Parmi les approches les mieux documentées figurent notamment crossNN/nanoDx, Sturgeon, MethyLYZR et MNP-Flex. Ces outils diffèrent par leur architecture, leurs jeux de référence et leurs stratégies de classification, mais permettent tous d’envisager une classification moléculaire rapide à partir de données nanopore.
+Le séquençage Oxford Nanopore permet l’analyse directe de l’ADN natif, y compris de sa méthylation, et plusieurs classifieurs pré-entraînés ont montré qu’une classification fiable des tumeurs du SNC pouvait être obtenue à partir de profils de méthylation parcimonieux. Parmi les approches les mieux documentées figurent crossNN/nanoDx, Sturgeon, MethyLYZR et MNP-Flex.
 
 L’objectif principal de ce projet est d’évaluer, dans les conditions réelles de prise en charge au CHU de Montpellier, si le séquençage nanopore d’un prélèvement tumoral congelé provenant de la même intervention permet d’obtenir une classification diagnostique concordante avec le diagnostic intégré final établi en routine sur FFPE.
 
-Il s’agira d’une étude prospective, monocentrique, comparative et appariée de performance diagnostique. Le résultat nanopore constituera le test index et le diagnostic intégré final sur FFPE le standard de référence. La cohorte principale sera analysée en multiplexage de six échantillons par flow cell afin d’évaluer la performance diagnostique dans une configuration économiquement soutenable. Une sous-cohorte prédéfinie sera séquencée en singleplex ou en faible multiplexage afin de caractériser la cinétique réelle d’acquisition de l’information moléculaire et d’estimer la transposabilité future du workflow à une utilisation peropératoire.
+Il s’agira d’une étude prospective, monocentrique, comparative et appariée de performance diagnostique. Le résultat nanopore constituera le test index et le diagnostic intégré final sur FFPE le standard de référence. La cohorte principale sera analysée en multiplexage de six échantillons par flow cell afin d’évaluer la performance diagnostique dans une configuration économiquement soutenable. Une sous-cohorte prédéfinie sera séquencée en singleplex ou faible multiplexage afin de caractériser la cinétique réelle d’acquisition de l’information moléculaire et d’estimer la transposabilité future du workflow à une utilisation peropératoire.
 
-Les mêmes données nanopore seront analysées par plusieurs classifieurs publiés et pré-entraînés. Aucun modèle ne sera entraîné ou optimisé sur la cohorte locale pour l’analyse principale. Le critère principal sera le taux de diagnostics nanopore concordants avec le diagnostic intégré de référence dans une approche en intention-to-diagnose, les échecs techniques et résultats non conclusifs étant intégrés comme échecs du workflow. Les analyses secondaires porteront sur la performance propre à chaque classifieur, leur concordance, les causes d’échec, l’influence des caractéristiques du prélèvement, ainsi que le temps et la quantité minimale de données nécessaires à l’obtention d’une classification correcte et stable.
+Après audit des réactifs disponibles et des protocoles actuels, le **Rapid Barcoding Kit V14 (`SQK-RBK114.24`) sur flow cell R10.4.1 (`FLO-MIN114`)** est retenu comme workflow de référence pour la planification du projet. Il est PCR-free, compatible avec l’analyse des modifications de bases et limite le nombre de réactifs externes et le temps de préparation. Les workflows Native Barcoding et Ligation V14 seront conservés comme alternatives techniques. Le protocole RRMS actuel n’est pas retenu pour l’étude principale car il repose sur une stratégie PromethION/adaptive sampling à quatre échantillons, avec fragmentation, lavages de flow cell et séquençage prolongé, qui ne correspond ni à l’objectif de diagnostic rapide ni aux contraintes budgétaires de l’AAP.
 
-Le projet s’appuie sur une infrastructure déjà disponible au CHU Montpellier : séquenceurs nanopore, expertise en biologie moléculaire, expérience locale du long-read et compétences bioinformatiques au PMMG/MOBIDIC. Une expérience scientifique directe existe également dans le domaine des tumeurs du SNC, avec la participation d’équipes montpelliéraines à une étude récente de classification nanopore des médulloblastomes.
+Les mêmes données nanopore seront analysées par plusieurs classifieurs publiés et pré-entraînés. Aucun modèle ne sera entraîné ou optimisé sur la cohorte locale pour l’analyse principale. Le critère principal sera le taux de diagnostics nanopore concordants avec le diagnostic intégré de référence dans une approche en intention-to-diagnose, les échecs techniques et résultats non conclusifs étant intégrés comme échecs du workflow.
 
-Si la performance diagnostique, le taux de succès technique et la cinétique observée sont compatibles avec les objectifs prédéfinis, cette étude constituera le socle méthodologique d’une seconde phase prospective évaluant le workflow en situation peropératoire avec les équipes de neuropathologie et de neurochirurgie.
+Le projet s’appuie sur une infrastructure déjà disponible au CHU Montpellier : séquenceurs nanopore, expertise en biologie moléculaire, expérience locale du long-read et compétences bioinformatiques au PMMG/MOBIDIC. Si les performances diagnostiques et la cinétique observée sont compatibles avec les objectifs prédéfinis, cette étude constituera le socle méthodologique d’une seconde phase prospective en situation peropératoire.
 
 ---
 
@@ -43,40 +43,36 @@ Si la performance diagnostique, le taux de succès technique et la cinétique ob
 
 La classification des tumeurs du SNC a évolué d’une approche essentiellement morphologique vers une nosologie intégrée combinant histologie et caractéristiques moléculaires. La classification par méthylation de l’ADN est devenue un outil diagnostique majeur, notamment depuis les travaux fondateurs de Capper et al., puis son intégration progressive dans les pratiques diagnostiques et les recommandations de l’OMS, de l’EANO et de cIMPACT-NOW.
 
-Cette approche peut confirmer un diagnostic, résoudre des cas morphologiquement ambigus, identifier des entités non reconnues initialement et fournir des informations complémentaires par l’analyse des profils de nombre de copies. Son intérêt est particulièrement marqué dans les tumeurs rares ou difficiles à classifier.
+Cette approche peut confirmer un diagnostic, résoudre des cas morphologiquement ambigus, identifier des entités non reconnues initialement et fournir des informations complémentaires à partir des profils de nombre de copies. Son intérêt est particulièrement marqué dans les tumeurs rares ou difficiles à classifier.
 
-Dans le circuit diagnostique actuel du CHU Montpellier, l’analyse de référence repose sur le matériel FFPE et associe anatomopathologie, immunohistochimie et analyses moléculaires ciblées ou plus larges selon le contexte clinique.
+Dans le circuit diagnostique actuel du CHU Montpellier, l’analyse de référence repose sur le matériel FFPE et associe anatomopathologie, immunohistochimie et analyses moléculaires adaptées au contexte clinique.
 
 ### 3.2. Limites du circuit diagnostique conventionnel
 
 Le diagnostic intégré conventionnel est robuste mais nécessite plusieurs étapes successives : fixation, inclusion, préparation histologique, analyses immunohistochimiques puis analyses moléculaires complémentaires. Ce circuit est adapté au diagnostic final mais n’est pas conçu pour produire une information moléculaire à très court délai.
 
-Cette temporalité limite l’utilisation des informations moléculaires au moment où certaines décisions pourraient encore être modifiées, en particulier pendant ou immédiatement après la chirurgie.
-
-Le présent projet ne vise cependant pas à introduire immédiatement le nanopore dans la décision peropératoire. Il vise d’abord à répondre à une question préalable : **le résultat obtenu sur un prélèvement congelé local est-il suffisamment concordant avec le diagnostic intégré FFPE pour justifier une étude ultérieure en temps réel ?**
+Le présent projet ne vise pas à introduire immédiatement le nanopore dans la décision peropératoire. Il vise d’abord à répondre à une question préalable : **le résultat obtenu sur un prélèvement congelé local est-il suffisamment concordant avec le diagnostic intégré FFPE pour justifier une étude ultérieure en temps réel ?**
 
 ### 3.3. Nanopore et classification des tumeurs du SNC
 
-Le séquençage nanopore présente plusieurs propriétés particulièrement adaptées à cette question : analyse d’ADN natif, détection directe de la méthylation, production des données en temps réel et possibilité d’analyse à faible couverture.
+Le séquençage nanopore présente plusieurs propriétés adaptées à cette question : analyse d’ADN natif, détection directe de la méthylation, production des données en temps réel et possibilité d’analyse à faible couverture.
 
 Plusieurs travaux ont montré la faisabilité d’une classification moléculaire des tumeurs cérébrales par nanopore, depuis les premières démonstrations de classification peropératoire jusqu’aux approches récentes intégrant méthylation, CNV et parfois d’autres altérations moléculaires.
 
-Parmi les outils actuellement les plus pertinents :
+Les outils actuellement les plus pertinents comprennent notamment :
 
-- **crossNN / nanoDx**, classifier sparse et cross-platform disposant d’un modèle CNS pré-entraîné et d’un code reproductible ;
-- **Sturgeon**, classifieur deep-learning développé spécifiquement pour la classification peropératoire à partir de profils nanopore extrêmement parcimonieux ;
+- **crossNN / nanoDx**, classifieur sparse et cross-platform disposant d’un modèle CNS pré-entraîné et d’un code reproductible ;
+- **Sturgeon**, développé pour la classification peropératoire à partir de profils nanopore très parcimonieux ;
 - **MethyLYZR**, approche probabiliste légère adaptée à la classification rapide de données de méthylation sparse ;
 - **MNP-Flex**, approche récente dérivée d’une référence CNS plus large et compatible avec plusieurs plateformes, sous réserve de son accessibilité dans le cadre du projet.
 
-Ces outils ont été développés sur de grandes références externes et ne nécessitent pas de constituer localement une cohorte de plusieurs milliers de tumeurs pour être évalués.
+Ces outils reposent sur de grandes références externes et ne nécessitent pas de constituer localement une cohorte de plusieurs milliers de tumeurs pour être évalués.
 
 ### 3.4. Positionnement du projet
 
-L’objectif n’est pas de développer une « IA locale » ni de réentraîner un classifieur sur une cohorte de taille insuffisante.
+L’objectif n’est pas de développer une « IA locale » ni de réentraîner un classifieur sur une cohorte de taille insuffisante. Le projet repose sur une logique de **validation externe comparative** : appliquer plusieurs classifieurs indépendants, déjà entraînés et publiés, aux mêmes données nanopore produites localement, puis mesurer leur concordance avec le diagnostic intégré réel des patients.
 
-Le projet repose au contraire sur une logique de **validation externe comparative** : appliquer plusieurs classifieurs indépendants, déjà entraînés et publiés, aux mêmes données nanopore produites localement, puis mesurer leur concordance avec le diagnostic intégré réel des patients.
-
-Cette stratégie permet de répondre à trois questions directement utiles :
+Cette stratégie doit répondre à trois questions :
 
 1. le nanopore permet-il de reproduire le diagnostic intégré conventionnel dans notre population ?
 2. quels classifieurs sont les plus robustes, et dans quelles situations échouent-ils ?
@@ -88,11 +84,11 @@ Cette stratégie permet de répondre à trois questions directement utiles :
 
 Le projet sera conduit dans l’environnement du Plateau de Médecine Moléculaire et de Génomique (PMMG), où les compétences nécessaires à sa réalisation sont déjà présentes.
 
-Des équipes du CHU Montpellier ont une expérience publiée du séquençage long-read et de l’utilisation d’Oxford Nanopore. Une étude portant sur une duplication intragénique de `PALB2` a notamment utilisé MinION/Flongle avec basecalling, alignement long-read, visualisation et détection de variants structuraux, avec implication de MOBIDIC/PMMG. Cette expérience démontre l’existence locale des compétences wet-lab et bioinformatiques nécessaires à l’exploitation de données ONT.
+Des équipes du CHU Montpellier ont une expérience publiée du séquençage long-read et de l’utilisation d’Oxford Nanopore. Une étude portant sur une duplication intragénique de `PALB2` a notamment utilisé MinION/Flongle avec basecalling, alignement long-read, visualisation et détection de variants structuraux, avec implication de MOBIDIC/PMMG.
 
-Le CHU Montpellier dispose également d’une connexion scientifique directe avec la classification nanopore des tumeurs du SNC. Dans l’étude de Filser et al. publiée dans *Neuro-Oncology* en 2025 sur la classification des médulloblastomes par nanopore, Valérie Rigau et Gilles Palenzuela figurent parmi les co-auteurs. Cette étude a montré une forte concordance avec la classification de référence, y compris avec des configurations de séquençage à faible capacité.
+Le CHU Montpellier dispose également d’une connexion scientifique directe avec la classification nanopore des tumeurs du SNC. Dans l’étude de Filser et al. publiée dans *Neuro-Oncology* en 2025 sur la classification des médulloblastomes par nanopore, Valérie Rigau et Gilles Palenzuela figurent parmi les co-auteurs. Cette étude a montré une forte concordance avec la classification de référence et a utilisé un multiplexage de six tumeurs sur MinION dans une partie du travail, ce qui soutient la faisabilité de la stratégie proposée pour la cohorte principale.
 
-Le projet ne nécessite donc pas l’acquisition d’un nouveau séquenceur ni la création d’une infrastructure bioinformatique dédiée. Les principales dépenses spécifiques concernent les flow cells, les kits de préparation de librairie, l’extraction/quantification de l’ADN et la prise en charge du prélèvement congelé.
+Le projet ne nécessite donc pas l’acquisition d’un nouveau séquenceur ni la création d’une infrastructure bioinformatique dédiée.
 
 > **TO DO — RECRUTEMENT RÉEL**  
 > - Nombre annuel de patients opérés / pris en charge pour une tumeur du SNC : `....................`  
@@ -138,9 +134,7 @@ Pour chaque patient inclus :
 - le **standard de référence** sera le diagnostic intégré final établi dans le circuit diagnostique habituel sur tissu FFPE ;
 - le **test index** sera l’analyse nanopore réalisée sur un fragment tumoral congelé provenant de la même intervention.
 
-Chaque patient constituera son propre comparateur.
-
-Le résultat nanopore restera expérimental et ne sera pas utilisé pour établir le diagnostic clinique ni modifier la prise en charge au cours de cette première phase.
+Chaque patient constituera son propre comparateur. Le résultat nanopore restera expérimental et ne sera pas utilisé pour établir le diagnostic clinique ni modifier la prise en charge au cours de cette première phase.
 
 ### 6.2. Population
 
@@ -153,7 +147,7 @@ Seront considérés comme éligibles les patients :
 - pour lesquels un fragment tumoral congelé correspondant à la même intervention est disponible sans compromettre les analyses nécessaires aux soins ;
 - pour lesquels un diagnostic intégré final peut être établi selon les procédures diagnostiques habituelles.
 
-La cohorte principale ne sera pas enrichie artificiellement en tumeurs facilement classifiables. Les cas rares, difficiles ou discordants pourront faire l’objet d’analyses secondaires spécifiques.
+La cohorte principale ne sera pas enrichie artificiellement en tumeurs facilement classifiables.
 
 ### 6.3. Standard diagnostique de référence
 
@@ -163,23 +157,46 @@ Les équipes réalisant le diagnostic conventionnel ne disposeront pas du résul
 
 ### 6.4. Prélèvement congelé
 
-Un fragment tumoral congelé provenant de la même intervention que le matériel FFPE sera utilisé pour le test index.
+Un fragment tumoral congelé provenant de la même intervention que le matériel FFPE sera utilisé pour le test index. Lorsque cela sera possible, les fragments FFPE et congelé seront issus de territoires anatomiquement proches. Une évaluation anatomopathologique du fragment destiné au nanopore ou d’une section adjacente documentera la représentativité tumorale.
 
-Lorsque cela sera possible, les fragments FFPE et congelé seront issus de territoires anatomiquement proches. Une évaluation anatomopathologique du fragment destiné au nanopore ou d’une section adjacente documentera la représentativité tumorale.
+Seront notamment enregistrés : pourcentage de cellules tumorales, nécrose, proportion de tissu non tumoral, quantité et qualité de l’ADN et principales variables pré-analytiques.
 
-Seront notamment enregistrés :
-
-- pourcentage estimé de cellules tumorales ;
-- présence et importance de la nécrose ;
-- proportion de tissu non tumoral ;
-- quantité et qualité de l’ADN ;
-- principales variables pré-analytiques.
-
-### 6.5. Séquençage nanopore
+### 6.5. Séquençage nanopore et choix du workflow
 
 L’ADN natif extrait du prélèvement congelé sera séquencé sur une plateforme Oxford Nanopore disponible localement.
 
-La préparation de librairie de référence retenue pour le chiffrage actuel est le **Rapid Barcoding Kit V14 (`SQK-RBK114.24`)** sur flow cell **R10.4.1 (`FLO-MIN114`)**. Ce choix reste à confirmer avant la version finale du protocole.
+#### Workflow de référence
+
+Après audit des listes de réactifs disponibles et confrontation aux protocoles actuels, le workflow de référence pour la cohorte principale est le **Rapid Barcoding Kit 24 V14 (`SQK-RBK114.24`) sur flow cell R10.4.1 (`FLO-MIN114`)**.
+
+Ce choix repose sur plusieurs éléments :
+
+- préparation rapide et PCR-free ;
+- compatibilité avec la détection des modifications de bases ;
+- nombre limité de réactifs externes ;
+- possibilité de multiplexage ;
+- cohérence avec les workflows publiés de classification rapide de tumeurs du SNC, notamment les travaux utilisant Rapid Barcoding dans les études de médulloblastome et dans l’adaptation R10 de Sturgeon.
+
+Le contrôle de quantité d’ADN sera réalisé avant préparation de librairie. Le budget inclut par prudence un contrôle d’intégrité par Genomic DNA ScreenTape/TapeStation. Ce contrôle pourra être retiré ou adapté si le circuit local définitif utilise une méthode différente.
+
+La fragmentation mécanique par **g-TUBE n’est pas prévue par défaut** dans le workflow Rapid Barcoding. Elle restera une option technique, notamment pour une éventuelle optimisation de la taille des fragments dans une sous-cohorte, et ne sera utilisée que si elle est justifiée avant le gel du protocole.
+
+#### Alternatives auditées
+
+**Native Barcoding V14 (`SQK-NBD114.24`).** Ce workflow est techniquement compatible avec MinION/GridION, mais nécessite des modules externes de réparation/end-prep et de ligation (`M6630`, `E7546`, `M0367`, `E6056`). Il est donc plus complexe que Rapid Barcoding et n’apporte pas, à ce stade, d’avantage évident pour la question principale.
+
+**Ligation Sequencing Kit V14 (`SQK-LSK114`).** Il constitue une alternative pour des analyses singleplex ou une question spécifique nécessitant un workflow ligation. L’audit confirme que le module NEB actuel à utiliser est le **NEBNext Companion Module v2 `E7672`**. Les anciens modules `E7180` ne seront pas utilisés pour un protocole LSK114 actuel. Le kit `SQK-LSK114-XL` doit être budgété sur sa capacité commerciale de **48 librairies** ; le calcul antérieur fondé sur 52 réactions théoriques de réactif surestimait sa capacité.
+
+**RRMS (Reduced Representation Methylation Sequencing).** Cette approche n’est pas retenue pour le protocole principal. Le protocole ONT RRMS actuel est conçu pour PromethION, avec quatre échantillons, environ 2 µg d’ADN par échantillon, fragmentation g-TUBE, adaptive sampling et séquençage prolongé jusqu’à 96 h avec lavages de flow cell. L’extrapolation à huit échantillons présente dans la feuille de réactifs initiale n’est pas considérée comme une hypothèse validée pour ce projet. Au-delà de son inadéquation avec l’objectif de rapidité, le budget recalculé pour 150 patients est supérieur au plafond de l’AAP avant même ajout des coûts institutionnels.
+
+> **TO DO — WORKFLOW FINAL**  
+> - Confirmer définitivement `SQK-RBK114.24` comme kit de référence : `....................`  
+> - Confirmer la plateforme/configuration exacte : `....................`  
+> - Confirmer la méthode d’extraction : `....................`  
+> - Confirmer le QC d’intégrité ADN : `TapeStation / autre / non requis : ....................`  
+> - Confirmer l’absence ou l’usage ciblé de g-TUBE : `....................`
+
+### 6.6. Traitement bioinformatique
 
 La chaîne bioinformatique comprendra a minima :
 
@@ -193,42 +210,28 @@ La chaîne bioinformatique comprendra a minima :
 
 Les versions exactes des logiciels, modèles, paramètres et seuils seront gelées avant l’analyse de la cohorte principale.
 
-### 6.6. Stratégie de séquençage en deux modalités
+### 6.7. Stratégie de séquençage en deux modalités
 
 #### Cohorte principale — validation diagnostique
 
-La majorité des prélèvements sera séquencée en **6-plex**, soit six échantillons par flow cell.
+La majorité des prélèvements sera séquencée en **6-plex**, soit six échantillons par flow cell. Cette modalité vise à obtenir un compromis entre coût et quantité de données par patient. La question principale dans cette cohorte sera la concordance diagnostique finale avec le standard de référence FFPE.
 
-Cette modalité vise à obtenir un compromis entre coût et quantité de données par patient. La question principale dans cette cohorte sera la concordance diagnostique finale avec le standard de référence FFPE.
-
-Les données de cette cohorte permettront également d’étudier la relation entre quantité de données et performance. En revanche, le temps chronologique de classification observé en 6-plex ne sera pas interprété comme une estimation directe du délai peropératoire, les six bibliothèques partageant la capacité de séquençage.
+Le temps chronologique de classification observé en 6-plex ne sera pas interprété comme une estimation directe du délai peropératoire, les six bibliothèques partageant la capacité de séquençage.
 
 #### Sous-cohorte cinétique — transposabilité peropératoire
 
 Une sous-cohorte prédéfinie sera séquencée en **singleplex ou faible multiplexage**, afin d’estimer la cinétique réelle d’acquisition de l’information dans une configuration plus proche d’une future utilisation peropératoire.
 
-Elle permettra de mesurer :
-
-- le temps jusqu’à la première classification correcte ;
-- le temps jusqu’à une classification correcte et stable ;
-- le nombre de reads, de bases et de CpG nécessaires ;
-- la variation de cette cinétique selon le classifieur.
+Elle permettra de mesurer le temps jusqu’à la première classification correcte, le temps jusqu’à une classification correcte et stable et le nombre de reads, bases et CpG nécessaires.
 
 > **TO DO — SOUS-COHORTE CINÉTIQUE**  
 > - Effectif : `....................`  
 > - Modalité : `singleplex / 2-plex / autre : ....................`  
 > - Critères d’arrêt du run : `....................`
 
-### 6.7. Classifieurs
+### 6.8. Classifieurs
 
-Les mêmes données nanopore seront analysées indépendamment par plusieurs classifieurs déjà publiés et pré-entraînés.
-
-La liste envisagée comprend :
-
-- crossNN / nanoDx ;
-- MethyLYZR ;
-- Sturgeon ;
-- MNP-Flex, sous réserve d’accessibilité.
+Les mêmes données nanopore seront analysées indépendamment par plusieurs classifieurs publiés et pré-entraînés : crossNN/nanoDx, MethyLYZR, Sturgeon et MNP-Flex sous réserve d’accessibilité.
 
 L’étude est conçue comme une **validation externe**. Aucun modèle ne sera entraîné, fine-tuné, recalibré ou optimisé sur la cohorte locale avant l’analyse principale. Il n’est donc pas prévu de séparation locale training/test pour le critère principal.
 
@@ -238,11 +241,9 @@ L’étude est conçue comme une **validation externe**. Aucun modèle ne sera e
 > - Seuils de confiance : `....................`  
 > - Règles de mapping methylation family/class/subclass → diagnostic clinique : `....................`
 
-### 6.8. Analyse en aveugle
+### 6.9. Analyse en aveugle
 
-Les prédictions nanopore seront générées sans connaissance du diagnostic intégré final. Les résultats de chaque classifieur seront enregistrés avant levée de l’aveugle.
-
-Les correspondances entre les sorties des modèles et les catégories diagnostiques utilisées pour la comparaison clinique seront définies a priori et gelées avant l’analyse principale.
+Les prédictions nanopore seront générées sans connaissance du diagnostic intégré final. Les résultats de chaque classifieur seront enregistrés avant levée de l’aveugle. Les correspondances entre les sorties des modèles et les catégories diagnostiques utilisées pour la comparaison clinique seront définies a priori et gelées avant l’analyse principale.
 
 ---
 
@@ -252,16 +253,7 @@ Les correspondances entre les sorties des modèles et les catégories diagnostiq
 
 Le critère principal sera le **taux de diagnostics nanopore concordants avec le diagnostic intégré de référence**, calculé sur l’ensemble des patients pour lesquels l’analyse nanopore a été initiée.
 
-L’analyse suivra une approche **intention-to-diagnose**.
-
-Seront considérés comme échecs pour le critère principal :
-
-- échec d’extraction empêchant l’analyse ;
-- échec de séquençage ;
-- quantité de données insuffisante ;
-- absence de prédiction ;
-- prédiction sous le seuil de confiance prédéfini ;
-- autre résultat non conclusif.
+L’analyse suivra une approche **intention-to-diagnose**. Seront considérés comme échecs pour le critère principal : échec d’extraction empêchant l’analyse, échec de séquençage, quantité de données insuffisante, absence de prédiction, prédiction sous le seuil de confiance prédéfini ou autre résultat non conclusif.
 
 La concordance sera évaluée à un niveau diagnostique prédéfini et cliniquement pertinent, distinct de la seule identité d’une methylation subclass.
 
@@ -289,14 +281,7 @@ Seront notamment évalués :
 
 Les données nanopore seront analysées de manière cumulative à plusieurs temps préspécifiés. Une grille indicative est : **5, 10, 15, 30, 45 et 60 minutes**, puis fin de run.
 
-À chaque temps seront enregistrés :
-
-- nombre de reads ;
-- quantité de bases ;
-- nombre de CpG informatifs ;
-- prédiction ;
-- score de confiance ;
-- concordance avec le diagnostic de référence.
+À chaque temps seront enregistrés : nombre de reads, quantité de bases, nombre de CpG informatifs, prédiction, score de confiance et concordance avec le diagnostic de référence.
 
 Une **classification correcte et stable** sera définie comme la première prédiction concordante avec le diagnostic de référence qui reste concordante à l’ensemble des temps ultérieurs préspécifiés.
 
@@ -313,41 +298,25 @@ Les analyses seront conduites au niveau du patient. Les estimations seront accom
 
 Les variables quantitatives seront décrites par moyenne et écart-type ou médiane et intervalle interquartile selon leur distribution. Les variables qualitatives seront décrites par effectifs et pourcentages.
 
-La distribution des diagnostics et les paramètres pré-analytiques seront décrits pour caractériser la population et évaluer sa représentativité.
-
 ### 9.2. Critère principal
 
-Le taux de concordance diagnostique sera estimé avec un **intervalle de confiance binomial à 95 %**.
-
-Seront rapportés séparément :
-
-1. le diagnostic yield ;
-2. la conditional accuracy ;
-3. la performance globale en intention-to-diagnose, qui constituera l’analyse principale.
+Le taux de concordance diagnostique sera estimé avec un **intervalle de confiance binomial à 95 %**. Seront rapportés séparément le diagnostic yield, la conditional accuracy et la performance globale en intention-to-diagnose, qui constituera l’analyse principale.
 
 ### 9.3. Comparaison des classifieurs
 
-Les différents modèles étant appliqués aux mêmes patients, les comparaisons seront appariées.
+Les différents modèles étant appliqués aux mêmes patients, les comparaisons seront appariées. Les différences de proportions de diagnostics corrects entre deux modèles pourront être testées par **test de McNemar**. Une correction de multiplicité, par exemple selon Holm, sera appliquée lorsque plusieurs comparaisons seront réalisées.
 
-Les différences de proportions de diagnostics corrects entre deux modèles pourront être testées par **test de McNemar**. Une correction de multiplicité, par exemple selon Holm, sera appliquée lorsque plusieurs comparaisons seront réalisées.
-
-Les matrices de confusion et le coefficient kappa de Cohen seront utilisés comme mesures descriptives complémentaires de concordance.
-
-Lorsque les effectifs le permettront, les performances par grande famille tumorale seront décrites, notamment par sensibilité/rappel, valeur prédictive positive et balanced accuracy.
+Les matrices de confusion et le coefficient kappa de Cohen seront utilisés comme mesures descriptives complémentaires. Lorsque les effectifs le permettront, les performances par grande famille tumorale seront décrites, notamment par sensibilité/rappel, valeur prédictive positive et balanced accuracy.
 
 ### 9.4. Effet du temps et de la quantité de données
 
-La probabilité d’obtenir une classification correcte sera étudiée à différents temps de séquençage.
-
-Les mesures répétées chez un même patient seront prises en compte à l’aide d’un **modèle de régression logistique à effets mixtes** ou d’une méthode équivalente pour données longitudinales. Le modèle pourra inclure le temps, le classifieur et leur interaction, avec un effet aléatoire patient.
+La probabilité d’obtenir une classification correcte sera étudiée à différents temps de séquençage. Les mesures répétées chez un même patient seront prises en compte à l’aide d’un **modèle de régression logistique à effets mixtes** ou d’une méthode équivalente pour données longitudinales. Le modèle pourra inclure le temps, le classifieur et leur interaction, avec un effet aléatoire patient.
 
 Des analyses analogues pourront utiliser le nombre de reads, le nombre de bases ou le nombre de CpG comme variable d’exposition.
 
 ### 9.5. Facteurs associés aux échecs
 
-Les facteurs associés à un résultat non conclusif, une discordance diagnostique ou un délai prolongé seront étudiés de façon exploratoire. Les variables candidates incluront notamment cellularité tumorale, nécrose, quantité/qualité de l’ADN, type tumoral et paramètres de séquençage.
-
-Le nombre de variables introduites dans les modèles multivariés sera limité en fonction du nombre d’événements observés afin d’éviter le surajustement.
+Les facteurs associés à un résultat non conclusif, une discordance diagnostique ou un délai prolongé seront étudiés de façon exploratoire. Les variables candidates incluront notamment cellularité tumorale, nécrose, quantité/qualité de l’ADN, type tumoral et paramètres de séquençage. Le nombre de variables introduites dans les modèles multivariés sera limité en fonction du nombre d’événements observés afin d’éviter le surajustement.
 
 ### 9.6. Données manquantes
 
@@ -357,14 +326,9 @@ Aucune imputation ne sera réalisée pour le critère principal. Les résultats 
 
 ## 10. Taille de cohorte
 
-La taille définitive de la cohorte sera déterminée avec l’URCE.
+La taille définitive de la cohorte sera déterminée avec l’URCE. Deux approches sont envisagées : une approche **estimative**, visant à estimer une concordance attendue élevée avec une précision prédéfinie, ou une approche **confirmatoire**, visant à démontrer que la concordance dépasse un seuil minimal cliniquement acceptable.
 
-Deux approches sont actuellement envisagées :
-
-1. une approche **estimative**, visant à estimer une concordance attendue élevée avec une précision prédéfinie ;
-2. une approche **confirmatoire**, visant à démontrer que la concordance dépasse un seuil minimal cliniquement acceptable.
-
-Les simulations budgétaires actuelles explorent des effectifs compris entre environ 80 et 200 patients. Une cohorte de l’ordre de 120–150 patients constitue actuellement un scénario de travail plausible mais **ne doit pas être considérée comme l’effectif statistique définitif**.
+Les simulations budgétaires explorent des effectifs compris entre environ 80 et 200 patients. Une cohorte de l’ordre de 120–150 patients constitue actuellement un scénario de travail plausible mais **ne doit pas être considérée comme l’effectif statistique définitif**.
 
 > **TO DO — CALCUL D’EFFECTIF URCE**  
 > - Approche retenue : `....................`  
@@ -381,8 +345,6 @@ Les simulations budgétaires actuelles explorent des effectifs compris entre env
 ## 11. Aspects réglementaires et éthiques
 
 Le résultat nanopore restera expérimental et ne modifiera pas la prise en charge clinique pendant cette première phase. Le projet utilisera un fragment tumoral congelé obtenu dans le contexte de l’intervention, sans compromettre le matériel nécessaire au diagnostic et aux soins.
-
-La qualification réglementaire définitive dépendra des modalités exactes de constitution prospective de la collection, de l’information des patients et de l’utilisation des données moléculaires.
 
 > **TO DO — QUALIFICATION RÉGLEMENTAIRE**  
 > À valider avec URCE / DRI :  
@@ -413,37 +375,58 @@ Le projet repose sur l’articulation de plusieurs compétences déjà présente
 
 ## 13. Budget prévisionnel
 
-Les séquenceurs et l’infrastructure bioinformatique étant déjà disponibles localement, le budget incrémental repose principalement sur :
+Les séquenceurs et l’infrastructure bioinformatique étant déjà disponibles localement, le budget incrémental repose principalement sur la prise en charge du fragment congelé/CRB, l’extraction et le QC de l’ADN, les kits de librairie, les flow cells, les consommables et les coûts institutionnels obligatoires.
 
-- prise en charge du fragment congelé / CRB ;
-- extraction et quantification de l’ADN ;
-- kits de préparation de librairie ;
-- flow cells ;
-- petits consommables ;
-- coûts de promotion, méthodologie et autres coûts institutionnels obligatoires.
+### 13.1. Hypothèses de référence après audit des réactifs
 
-Le modèle budgétaire actuel utilise comme références provisoires :
+Le modèle budgétaire utilise actuellement :
 
 - `FLO-MIN114` : **740 € HT / flow cell** ;
 - `SQK-RBK114.24` : **730 € HT / kit**, six réactions complètes par kit ;
 - QIAamp Fast DNA Tissue Kit : **296 € / 50 extractions** ;
 - Qubit dsDNA HS : **135,65 € / 100 dosages** ;
+- Genomic DNA Reagents `5067-5366` : **186 € HT / 105 échantillons** ;
+- Genomic DNA ScreenTape `5067-5365` : **270 € HT / 105 échantillons** si les QC sont regroupés efficacement ;
 - petits consommables : **4 € / patient** ;
-- CRB : scénario provisoire bas et haut fondé sur la grille publique, en attente d’un devis prospectif spécifique.
+- CRB : scénario provisoire bas et haut fondé sur la grille publique, en attente d’un devis spécifique.
 
-Dans le scénario de travail actuel de **150 patients dont 12 en 2-plex et le reste en 6-plex**, le coût technique estimatif est d’environ :
+L’audit a corrigé plusieurs erreurs des tableaux de départ. Les coûts TapeStation « pool-8 » avaient notamment été sous-estimés. Le budget est désormais calculé sur le **nombre de packs réellement à acheter**, et non par extrapolation d’un coût proportionnel par pool. Pour 150 patients, deux packs de Genomic DNA Reagents et deux packs de Genomic DNA ScreenTape sont ainsi prévus, soit **912 € HT**.
 
-- **39,7 k€** avec l’hypothèse CRB basse ;
-- **49,9 k€** avec l’hypothèse CRB haute ;
+Le g-TUBE `520104` est valorisé à **3 150 € HT pour 100 unités**, soit 31,50 € HT par patient lorsqu’il est utilisé. Il reste toutefois **désactivé dans le scénario principal**, car une fragmentation mécanique n’est pas obligatoire pour le workflow Rapid Barcoding retenu.
 
-marge technique de 10 % incluse et hors coûts institutionnels encore inconnus.
+### 13.2. Scénario de travail actuel
 
-Le classeur `budget_previsionnel_AAP_JC2026.xlsx` permet de modifier directement l’effectif, les prix marché, le multiplexage et les coûts institutionnels.
+Dans le scénario actuel de **150 patients dont 12 en 2-plex et 138 en 6-plex**, le modèle nécessite :
+
+- 29 flow cells `FLO-MIN114` ;
+- 5 kits `SQK-RBK114.24` ;
+- 3 kits d’extraction QIAamp ;
+- 2 kits Qubit ;
+- 2 packs Genomic DNA Reagents ;
+- 2 packs Genomic DNA ScreenTape.
+
+Le coût technique estimatif, marge technique de 10 % incluse et hors coûts institutionnels encore inconnus, est de :
+
+- **40,7 k€** avec l’hypothèse CRB basse ;
+- **50,9 k€** avec l’hypothèse CRB haute.
+
+Le coût moyen technique correspondant est d’environ **271 € HT/patient** dans le scénario CRB bas et **339 € HT/patient** dans le scénario CRB haut.
+
+### 13.3. Analyse des workflows alternatifs
+
+L’audit confirme que le coût ne doit pas être évalué uniquement à partir du prix du kit ONT.
+
+- **Native Barcoding V14** nécessite en plus des réactifs de réparation/end-prep et ligation. Il reste une alternative réaliste mais plus complexe.
+- **LSK114** nécessite le NEB Companion Module v2 `E7672`; le coût du kit LSK standard est de 105 € HT par librairie avant flow cell et réactifs externes.
+- **RRMS** implique PromethION, g-TUBE, réactifs NEB, extensions de buffer et lavages répétés. Pour 150 patients, un scénario conservateur recalculé atteint environ **74,4 k€ HT** avec l’hypothèse CRB basse et une marge de 10 %, avant promotion, méthodologie, personnel ou autres coûts institutionnels. Il n’est donc pas compatible avec le plafond de 60 k€ et n’est pas retenu.
+
+Le classeur `budget_previsionnel_AAP_JC2026.xlsx` comporte désormais des onglets `Audit_reactifs` et `Comparatif_protocoles` permettant de tracer ces corrections et de modifier les hypothèses.
 
 > **TO DO — COÛTS INSTITUTIONNELS / MARCHÉ CHU**  
 > - Prix marché `FLO-MIN114` : `.................... € HT`  
 > - Prix marché `SQK-RBK114.24` : `.................... € HT`  
 > - Devis CRB / patient, fragment prospectif ~20–30 mg : `.................... € HT`  
+> - Prix/méthode définitive d’extraction et QC : `....................`  
 > - Frais de promotion : `.................... €`  
 > - Méthodologie / biostatistiques : `.................... €`  
 > - Personnel spécifique : `.................... €`  
@@ -461,8 +444,7 @@ Le projet devra être réalisé dans la durée maximale de trois ans prévue par
 - validation réglementaire ;
 - ouverture de l’étude ;
 - gel des versions de pipelines et classifieurs ;
-- validation technique du workflow local ;
-- formation/documentation opératoire si nécessaire.
+- validation technique du workflow local.
 
 ### Phase 2 — inclusion et analyses nanopore
 
@@ -495,11 +477,11 @@ Le prélèvement congelé et le bloc FFPE peuvent ne pas représenter exactement
 
 ### Échec technique ou données insuffisantes
 
-Les échecs seront enregistrés prospectivement et inclus dans l’analyse principale en intention-to-diagnose. La performance du workflow ne sera donc pas artificiellement surestimée en excluant les cas difficiles.
+Les échecs seront enregistrés prospectivement et inclus dans l’analyse principale en intention-to-diagnose.
 
 ### Déséquilibre entre classes tumorales
 
-L’inclusion consécutive reflétera la distribution clinique réelle. Les analyses par classe seront considérées comme secondaires lorsque les effectifs sont faibles. Le critère principal portera sur une concordance diagnostique globale cliniquement pertinente.
+L’inclusion consécutive reflétera la distribution clinique réelle. Les analyses par classe seront considérées comme secondaires lorsque les effectifs sont faibles.
 
 ### Évolution des classifieurs
 
@@ -509,9 +491,13 @@ Les modèles et versions utilisés seront gelés avant l’analyse principale. T
 
 Aucun réentraînement ni optimisation sur la cohorte locale ne sera autorisé pour l’analyse principale.
 
+### Choix du workflow de librairie
+
+Le choix Rapid Barcoding est justifié par la rapidité, la simplicité et le coût. Il sera néanmoins verrouillé avant l’ouverture de l’étude. Si une alternative Native Barcoding ou LSK est finalement préférée pour des raisons analytiques, le budget et les procédures seront recalculés avant inclusion.
+
 ### Budget
 
-Le coût dépend fortement du prix des flow cells et du coût CRB. La stratégie de multiplexage à six patients par flow cell vise à conserver un effectif suffisant tout en restant compatible avec l’enveloppe de l’AAP.
+Le coût dépend fortement du prix réel des flow cells et du coût CRB. Avec les prix catalogue actuels, le scénario CRB haut laisse peu de marge sous le plafond de l’AAP une fois ajoutés les coûts institutionnels. L’obtention rapide des prix marché CHU et du devis CRB est donc un jalon critique.
 
 ---
 
@@ -519,14 +505,7 @@ Le coût dépend fortement du prix des flow cells et du coût CRB. La stratégie
 
 L’étude doit permettre d’obtenir une réponse quantitative à la question principale : **dans quelle proportion des cas un workflow nanopore sur tissu congelé reproduit-il le diagnostic intégré établi en routine sur FFPE ?**
 
-Elle permettra également de :
-
-- mesurer le taux réel de résultats non conclusifs ;
-- comparer plusieurs classifieurs indépendants sur une même cohorte ;
-- identifier les types d’erreurs et leurs déterminants ;
-- définir la quantité minimale de données nécessaire à une classification fiable ;
-- mesurer une cinétique réaliste dans une configuration compatible avec une future utilisation peropératoire ;
-- établir un coût par patient dans les conditions locales.
+Elle permettra également de mesurer le taux réel de résultats non conclusifs, comparer plusieurs classifieurs indépendants, identifier les types d’erreurs et leurs déterminants, définir la quantité minimale de données nécessaire à une classification fiable, mesurer une cinétique réaliste dans une configuration compatible avec une future utilisation peropératoire et établir un coût par patient dans les conditions locales.
 
 ---
 
@@ -536,9 +515,7 @@ Le projet est conçu comme une étape de validation préalable à un changement 
 
 Si la concordance diagnostique, le taux de succès technique et les délais sont compatibles avec les objectifs prédéfinis, une seconde étude prospective pourra tester le workflow en situation peropératoire, avec implication directe des équipes de neurochirurgie et de neuropathologie.
 
-Cette seconde phase devra répondre à une question différente : non plus seulement « le diagnostic est-il correct ? », mais **« une information moléculaire disponible pendant l’intervention modifie-t-elle de manière pertinente la stratégie chirurgicale ou la prise en charge immédiate ? »**
-
-La littérature récente apporte déjà des éléments en faveur de cette perspective : des workflows nanopore ont démontré une classification pendant la fenêtre opératoire et des études cliniques récentes ont montré que cette information pouvait soutenir ou modifier la stratégie chirurgicale dans certaines situations. Le présent projet fournira les données locales nécessaires pour décider si cette transposition est justifiée au CHU Montpellier.
+Cette seconde phase devra répondre à une question différente : **une information moléculaire disponible pendant l’intervention modifie-t-elle de manière pertinente la stratégie chirurgicale ou la prise en charge immédiate ?**
 
 L’effet levier attendu comprend :
 
@@ -546,24 +523,15 @@ L’effet levier attendu comprend :
 - la constitution d’un pipeline reproductible et documenté ;
 - une base méthodologique pour une étude prospective peropératoire ;
 - la possibilité d’un futur projet multicentrique ou d’un AAP de plus grande envergure ;
-- une structuration renforcée entre neuropathologie, PMMG, bioinformatique et neurochirurgie autour du diagnostic moléculaire rapide des tumeurs du SNC.
+- une structuration renforcée entre neuropathologie, PMMG, bioinformatique et neurochirurgie.
 
 ---
 
 ## 18. Valorisation scientifique
 
-La publication principale devra privilégier une présentation transparente de l’ensemble du workflow, incluant les échecs techniques et les résultats non conclusifs.
+La publication principale devra présenter de manière transparente l’ensemble du workflow, incluant les échecs techniques et les résultats non conclusifs. Le manuscrit pourra être structuré comme une étude de validation diagnostique externe avec comparaison de plusieurs modèles pré-entraînés.
 
-Le manuscrit pourra être structuré comme une étude de validation diagnostique externe avec comparaison de plusieurs modèles pré-entraînés. La cohorte locale ne sera pas utilisée comme cohorte d’entraînement pour la publication principale.
-
-Des analyses complémentaires pourront faire l’objet de travaux secondaires :
-
-- comparaison approfondie des classifieurs ;
-- analyse des cas discordants ;
-- relation entre cellularité et performance ;
-- métriques de temps-to-diagnosis ;
-- CNV/MGMT/altérations additionnelles ;
-- analyse médico-économique exploratoire.
+Des analyses complémentaires pourront porter sur les classifieurs, les cas discordants, la relation entre cellularité et performance, les métriques de time-to-diagnosis, CNV/MGMT et une analyse médico-économique exploratoire.
 
 Le porteur du projet devra être premier auteur de la publication princeps conformément aux exigences de l’AAP.
 
@@ -571,14 +539,9 @@ Le porteur du projet devra être premier auteur de la publication princeps confo
 
 ## 19. Bibliographie principale
 
-La bibliographie complète et les références BibTeX sont disponibles dans :
+La bibliographie complète et les références BibTeX sont disponibles dans `references.md`, `references.bib`, `surgical_impact_references.bib` et `montpellier_local_references.bib`.
 
-- `references.md` ;
-- `references.bib` ;
-- `surgical_impact_references.bib` ;
-- `montpellier_local_references.bib`.
-
-Références particulièrement structurantes pour le projet :
+Références particulièrement structurantes :
 
 1. Capper D, et al. *Nature*. 2018. DNA methylation-based classification of central nervous system tumours.
 2. Louis DN, et al. *Neuro-Oncology*. 2021. WHO Classification of Tumors of the Central Nervous System.
@@ -611,8 +574,9 @@ Voir `TO_DO.md` pour le suivi détaillé.
 
 ### À préspécifier avant démarrage
 
-- [ ] Séquenceur/configuration exacte.
+- [ ] Confirmation finale du workflow `SQK-RBK114.24` / `FLO-MIN114`.
 - [ ] Méthode d’extraction finale.
+- [ ] QC d’intégrité de l’ADN.
 - [ ] Multiplexage définitif de la sous-cohorte cinétique.
 - [ ] Classifieurs et versions.
 - [ ] Seuils de confiance.
@@ -623,4 +587,4 @@ Voir `TO_DO.md` pour le suivi détaillé.
 
 ## 21. Statut de la version v0.1
 
-Cette version contient une trame scientifique suffisamment complète pour servir de base à la rédaction du dossier JC 2026. Les inconnues restantes sont principalement institutionnelles, réglementaires et quantitatives ; elles ne remettent pas en cause la question scientifique ni le design général du projet.
+Cette version contient une trame scientifique suffisamment complète pour servir de base à la rédaction du dossier JC 2026. L’audit des réactifs a permis de consolider le choix d’un workflow Rapid Barcoding pour la planification, d’exclure RRMS du protocole principal et d’améliorer le réalisme budgétaire. Les inconnues restantes sont principalement institutionnelles, réglementaires et quantitatives ; elles ne remettent pas en cause la question scientifique ni le design général du projet.

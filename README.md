@@ -15,7 +15,8 @@ The core scientific bibliography prioritizes **journal-published articles**. Pre
 - `surgical_impact_references.bib` — focused BibTeX bibliography for perioperative impact, adult glioma surgery and biology-informed extent-of-resection literature.
 - `montpellier_landscape_2026-09-07.md` — CHU Montpellier feasibility context, centered on PMMG.
 - `montpellier_local_references.bib` — CHU-linked long-read references.
-- `project_manuscript_v0.1.md` — initial AAP manuscript version; retained as a traceable baseline and **not considered the final project framing** after the September 2026 shift toward accelerated clinical implementation.
+- `project_manuscript_v0.1.md` — initial validation-focused AAP manuscript, retained as a traceable baseline.
+- `project_manuscript_v0.2_2026-09-09.md` — **current scientific framing**: accelerated clinical implementation, Toulouse benchmark, limited local qualification, prospective clinical evaluation and conditional perioperative phase.
 - `methodology_AAP_JC2026_2026-09-08.md` — initial validation-focused methodology; to be revised after Toulouse workflow feedback and regulatory/quality discussion.
 
 ## Current project positioning — updated 9 September 2026
@@ -31,6 +32,8 @@ The intended trajectory is now:
 5. if the regulatory and quality framework permits clinical reporting, evaluate perioperative use with neurosurgery, including whether the molecular result is available during the decision window and whether it confirms or changes surgical strategy.
 
 The exact transition from experimental output to a result usable in care must be defined with neuropathology, the molecular laboratory, quality/accreditation stakeholders and DRI/URCE. The EANO guideline explicitly notes that methylation classifiers are not themselves CE-IVD devices and that local diagnostic use requires the appropriate validation/accreditation framework.
+
+For the AAP Jeunes Chercheurs Tremplin 2026, the perioperative decision-impact phase must also remain compatible with the regulatory categories allowed by the call; a protocol in which an experimental result directly changes surgery cannot simply be assumed eligible without URCE/DRI confirmation.
 
 ## Core scientific themes
 

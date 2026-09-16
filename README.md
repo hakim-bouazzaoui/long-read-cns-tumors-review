@@ -1,6 +1,6 @@
 # Long-read sequencing in CNS tumour diagnostics — literature repository
 
-Curated literature and project repository for recent evidence on **long-read / Oxford Nanopore sequencing in brain and CNS tumour diagnostics**, with emphasis on fresh/frozen tissue, genome-wide methylation classification, CNV/SV analysis, targeted SNV detection, rapid/intraoperative workflows, clinical implementation and perioperative decision support.
+Curated literature and project repository for recent evidence on **long-read / Oxford Nanopore sequencing in brain and CNS tumour diagnostics**, with emphasis on fresh/frozen and FFPE tissue, genome-wide methylation classification, CNV/SV analysis, targeted SNV detection, rapid/intraoperative workflows, clinical implementation and perioperative decision support.
 
 ## Scope
 
@@ -10,6 +10,8 @@ The core scientific bibliography prioritizes **journal-published articles**. Pre
 
 - `references.bib` — Zotero/BibTeX-ready curated bibliography, now including authoritative classifications/guidelines as well as peer-reviewed literature.
 - `references.md` — human-readable categorized bibliography.
+- `ffpe_nanopore_cns_workflow_2026-09-16.md` — **technical FFPE implementation review**: detailed wet-lab protocols, extraction kits, ONT library/flow-cell configurations, published FFPE cohorts, exact bioinformatics versions, public workflows/repositories, pretrained classifiers, reference datasets, QC requirements and proposed local qualification architecture.
+- `ffpe_nanopore_references.bib` — focused BibTeX bibliography for direct FFPE evidence, Sturgeon, nanoDx/crossNN, Rapid-CNS², MethyLYZR, ROBIN and implementation software.
 - `methylome_guidelines_and_clinical_implementation_rationale_2026-09-09.md` — detailed WHO/EANO/cIMPACT-NOW/ICCR/SIOPE/ANOCEF argument for genome-wide methylation profiling and implications for accelerated clinical implementation of the Montpellier nanopore workflow.
 - `clinical_impact_perioperative.md` — detailed evidence on intraoperative decision-making, with a dedicated **adult diffuse-glioma / glioblastoma** section.
 - `surgical_impact_references.bib` — focused BibTeX bibliography for perioperative impact, adult glioma surgery and biology-informed extent-of-resection literature.
@@ -41,7 +43,7 @@ For the AAP Jeunes Chercheurs Tremplin 2026, the perioperative decision-impact p
 2. **Genome-wide methylation profiling as a clinical capability** — essential/desirable WHO criteria for multiple entities, diagnostic resolution of difficult cases, NOS/NEC reduction and standardized molecular reporting.
 3. **Rapid methylation classification** — nanoDx, Sturgeon, MethyLYZR, MNP-Flex/crossNN.
 4. **Multimodal nanopore profiling** — methylation + CNV, with extension to SNV/indel, SV/fusions and MGMT.
-5. **Fresh/frozen and intraoperative feasibility** — Djirackor, Sturgeon, Rapid-CNS2, ROBIN and recent validation studies.
+5. **Fresh/frozen, FFPE and intraoperative feasibility** — including direct FFPE validation by Afflerbach 2024, Feinberg-Gorenshtein 2025, Kerbs 2025 and the multicentre ROBIN evaluation of Hu 2026.
 6. **Clinical decision impact** — whether obtaining tumour identity during surgery can change the balance between extent of resection and neurological risk.
 7. **Adult precision neurosurgery** — whether adult glioma molecular state can inform how aggressively a tumour should be resected and whether rapid molecular data can correct intraoperative diagnostic uncertainty.
 8. **Clinical implementation** — analytical qualification, ISO 15189/IVDR considerations, reporting, turnaround time, staff requirements, costs and inter-centre transfer of validated workflows.
@@ -90,6 +92,8 @@ The relevant local question is no longer simply whether nanopore methylation cla
 - what are the real turnaround time, failure modes and cost in the Montpellier environment;
 - how should the result be integrated with neuropathology;
 - and, once clinically qualified, can it provide useful molecular information while neurosurgical decisions remain modifiable?
+
+The FFPE literature now adds an important implementation route: archived and routine FFPE material can be used for local analytical qualification and for cases in which no frozen tissue is available. The detailed evidence and technical requirements are documented in `ffpe_nanopore_cns_workflow_2026-09-16.md`.
 
 ## Perioperative clinical-value angle
 

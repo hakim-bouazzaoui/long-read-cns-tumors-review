@@ -11,6 +11,7 @@ The core scientific bibliography prioritizes **journal-published articles**. Pre
 - `references.bib` — Zotero/BibTeX-ready curated bibliography, now including authoritative classifications/guidelines as well as peer-reviewed literature.
 - `references.md` — human-readable categorized bibliography.
 - `ffpe_nanopore_cns_workflow_2026-09-16.md` — **technical FFPE implementation review**: detailed wet-lab protocols, extraction kits, ONT library/flow-cell configurations, published FFPE cohorts, exact bioinformatics versions, public workflows/repositories, pretrained classifiers, reference datasets, QC requirements and proposed local qualification architecture.
+- `mnpflex_v12_8_ghga_classifier_strategy_2026-09-18.md` — **current classifier strategy update**: Heidelberg/Epignostix v12.8, MNP-Flex, GHGA `GHGAD19671623325581`, Rapid-CNS² integration, distinction between inference and model training, and revised classifier benchmark for ONT.
 - `ffpe_nanopore_references.bib` — focused BibTeX bibliography for direct FFPE evidence, Sturgeon, nanoDx/crossNN, Rapid-CNS², MethyLYZR, ROBIN and implementation software.
 - `methylome_guidelines_and_clinical_implementation_rationale_2026-09-09.md` — detailed WHO/EANO/cIMPACT-NOW/ICCR/SIOPE/ANOCEF argument for genome-wide methylation profiling and implications for accelerated clinical implementation of the Montpellier nanopore workflow.
 - `clinical_impact_perioperative.md` — detailed evidence on intraoperative decision-making, with a dedicated **adult diffuse-glioma / glioblastoma** section.
@@ -20,6 +21,19 @@ The core scientific bibliography prioritizes **journal-published articles**. Pre
 - `project_manuscript_v0.1.md` — initial validation-focused AAP manuscript, retained as a traceable baseline.
 - `project_manuscript_v0.2_2026-09-09.md` — **current scientific framing**: accelerated clinical implementation, Toulouse benchmark, limited local qualification, prospective clinical evaluation and conditional perioperative phase.
 - `methodology_AAP_JC2026_2026-09-08.md` — initial validation-focused methodology; to be revised after Toulouse workflow feedback and regulatory/quality discussion.
+
+## Classifier strategy update — 18 September 2026
+
+The current implementation strategy distinguishes **inference with published/pretrained classifiers** from **development or retraining of a classifier**.
+
+- The Heidelberg CNS Tumor Methylation Classifier **v12.8** is trained on **7,495 methylation profiles** and provides a hierarchical taxonomy reaching **184 subclasses**.
+- The controlled-access GHGA dataset `GHGAD19671623325581` contains the v12.8 reference/training cohort and is **not required for routine inference with pretrained or hosted classifiers**.
+- **MNP-Flex** provides a platform-agnostic route to the v12.8-level taxonomy from sequencing-derived methylation profiles, including Nanopore data.
+- The current `Rapid-CNS2_nf` workflow can prepare `MNPFlex.input.bed` files and optionally submit them to Epignostix, so Rapid-CNS² should be evaluated both as an integrated molecular workflow and as an orchestration route toward MNP-Flex/v12.8.
+- The local benchmark should retain **MNP-Flex/Epignostix v12.8, Sturgeon, MethyLYZR and crossNN/nanoDx** as distinct classifier outputs, while Rapid-CNS² and ROBIN are also assessed as integrated workflows.
+- Access to the GHGA training dataset is therefore a **possible later ML-development step**, not a blocking prerequisite for the Montpellier analytical qualification.
+
+See `mnpflex_v12_8_ghga_classifier_strategy_2026-09-18.md` for the detailed evidence, implementation architecture, data requirements and roadmap.
 
 ## Current project positioning — updated 9 September 2026
 
